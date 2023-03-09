@@ -1,0 +1,32 @@
+<template name="menu">
+  <div class="modal left" id="menu">
+    <header class="fixed">
+      <nav>
+        <button class="transparent circle large" id="closMenuBtn">
+          <i>close</i>
+        </button>
+        <h5 class="max">Menu</h5>
+      </nav>
+    </header>
+    {{#if currentUser}}
+    <a class="row round" href="/profile">
+      <i>person</i>
+      <span>Profil</span>
+    </a>
+    {{else}}
+    <a class="row round" href="/login">
+      <i>person</i>
+      <span>Se connecter</span>
+    </a>
+    {{/if}}
+    <a class="row round" href="/search">
+      <i>search</i>
+      <span>Rechercher</span>
+      <!-- <div>100+</div> -->
+    </a>
+    <a class="row round" href="/about">
+      <i>question_mark</i>
+      <span>À propos</span>
+    </a>
+  </div>
+</template>

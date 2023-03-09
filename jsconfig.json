@@ -1,0 +1,109 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "allowJs": true,
+    "jsx": "react",
+    "baseUrl": ".",
+    "paths": {
+      "/*": [
+        "./*"
+      ],
+      "meteor/mongo": [
+        "/Users/gui/.meteor/packages/mongo/1.16.4/web.browser/local_collection_driver.js",
+        "/Users/gui/.meteor/packages/mongo/1.16.4/web.browser/collection.js",
+        "/Users/gui/.meteor/packages/mongo/1.16.4/web.browser/connection_options.js",
+        "/Users/gui/.meteor/packages/mongo/1.16.4/web.browser/doc_fetcher.js",
+        "/Users/gui/.meteor/packages/mongo/1.16.4/web.browser/mongo_driver.js",
+        "/Users/gui/.meteor/packages/mongo/1.16.4/web.browser/mongo_utils.js",
+        "/Users/gui/.meteor/packages/mongo/1.16.4/web.browser/observe_multiplex.js",
+        "/Users/gui/.meteor/packages/mongo/1.16.4/web.browser/oplog_observe_driver.js",
+        "/Users/gui/.meteor/packages/mongo/1.16.4/web.browser/oplog_tailing.js",
+        "/Users/gui/.meteor/packages/mongo/1.16.4/web.browser/oplog_v2_converter.js",
+        "/Users/gui/.meteor/packages/mongo/1.16.4/web.browser/polling_observe_driver.js",
+        "/Users/gui/.meteor/packages/mongo/1.16.4/web.browser/remote_collection_driver.js"
+      ],
+      "meteor/jquery": [
+        "/Users/gui/.meteor/packages/jquery/3.0.0/web.browser/main.js"
+      ],
+      "meteor/reactive-var": [
+        "/Users/gui/.meteor/packages/reactive-var/1.0.12/web.browser/reactive-var.js"
+      ],
+      "meteor/tracker": [
+        "/Users/gui/.meteor/packages/tracker/1.3.1/web.browser/tracker.js"
+      ],
+      "meteor/es5-shim": [
+        "/Users/gui/.meteor/packages/es5-shim/4.8.0/web.browser/client.js",
+        "/Users/gui/.meteor/packages/es5-shim/4.8.0/web.browser/console.js",
+        "/Users/gui/.meteor/packages/es5-shim/4.8.0/web.browser/cordova.js",
+        "/Users/gui/.meteor/packages/es5-shim/4.8.0/web.browser/export_globals.js",
+        "/Users/gui/.meteor/packages/es5-shim/4.8.0/web.browser/import_globals.js"
+      ],
+      "meteor/ecmascript": [
+        "/Users/gui/.meteor/packages/ecmascript/0.16.6/web.browser/ecmascript.js"
+      ],
+      "meteor/shell-server": [
+        "/Users/gui/.meteor/packages/shell-server/0.5.0/web.browser/main.js",
+        "/Users/gui/.meteor/packages/shell-server/0.5.0/web.browser/shell-server.js"
+      ],
+      "meteor/ostrio:flow-router-extra": [
+        "/Users/gui/.meteor/packages/ostrio_flow-router-extra/3.9.0/web.browser/client/_init.js",
+        "/Users/gui/.meteor/packages/ostrio_flow-router-extra/3.9.0/web.browser/client/active.route.js",
+        "/Users/gui/.meteor/packages/ostrio_flow-router-extra/3.9.0/web.browser/client/group.js",
+        "/Users/gui/.meteor/packages/ostrio_flow-router-extra/3.9.0/web.browser/client/modules.js",
+        "/Users/gui/.meteor/packages/ostrio_flow-router-extra/3.9.0/web.browser/client/renderer.js",
+        "/Users/gui/.meteor/packages/ostrio_flow-router-extra/3.9.0/web.browser/client/route.js",
+        "/Users/gui/.meteor/packages/ostrio_flow-router-extra/3.9.0/web.browser/client/router.js",
+        "/Users/gui/.meteor/packages/ostrio_flow-router-extra/3.9.0/web.browser/client/triggers.js",
+        "/Users/gui/.meteor/packages/ostrio_flow-router-extra/3.9.0/web.browser/lib/_helpers.js",
+        "/Users/gui/.meteor/packages/ostrio_flow-router-extra/3.9.0/web.browser/server/_init.js",
+        "/Users/gui/.meteor/packages/ostrio_flow-router-extra/3.9.0/web.browser/server/group.js",
+        "/Users/gui/.meteor/packages/ostrio_flow-router-extra/3.9.0/web.browser/server/route.js",
+        "/Users/gui/.meteor/packages/ostrio_flow-router-extra/3.9.0/web.browser/server/router.js",
+        "/Users/gui/.meteor/packages/ostrio_flow-router-extra/3.9.0/web.browser/server/plugins/fast-render.js"
+      ],
+      "meteor/meteortesting:mocha": [
+        "/Users/gui/.meteor/packages/meteortesting_mocha/2.1.0/web.browser/client.js",
+        "/Users/gui/.meteor/packages/meteortesting_mocha/2.1.0/web.browser/browser-shim.js",
+        "/Users/gui/.meteor/packages/meteortesting_mocha/2.1.0/web.browser/prepForHTMLReporter.js",
+        "/Users/gui/.meteor/packages/meteortesting_mocha/2.1.0/web.browser/runtimeArgs.js",
+        "/Users/gui/.meteor/packages/meteortesting_mocha/2.1.0/web.browser/server.handleCoverage.js",
+        "/Users/gui/.meteor/packages/meteortesting_mocha/2.1.0/web.browser/server.js"
+      ],
+      "meteor/johanbrook:publication-collector": [
+        "/Users/gui/.meteor/packages/johanbrook_publication-collector/1.1.0/web.browser/publication-collector.js"
+      ],
+      "meteor/accounts-passwordless": [
+        "/Users/gui/.meteor/packages/accounts-passwordless/2.1.3/web.browser/passwordless_client.js",
+        "/Users/gui/.meteor/packages/accounts-passwordless/2.1.3/web.browser/email_templates.js",
+        "/Users/gui/.meteor/packages/accounts-passwordless/2.1.3/web.browser/passwordless_server.js",
+        "/Users/gui/.meteor/packages/accounts-passwordless/2.1.3/web.browser/server_utils.js"
+      ],
+      "meteor/aldeed:collection2": [
+        "/Users/gui/.meteor/packages/aldeed_collection2/3.5.0/web.browser/collection2.js",
+        "/Users/gui/.meteor/packages/aldeed_collection2/3.5.0/web.browser/lib.js"
+      ],
+      "meteor/matb33:collection-hooks": [
+        "/Users/gui/.meteor/packages/matb33_collection-hooks/1.2.1/web.browser/client.js",
+        "/Users/gui/.meteor/packages/matb33_collection-hooks/1.2.1/web.browser/advices.js",
+        "/Users/gui/.meteor/packages/matb33_collection-hooks/1.2.1/web.browser/collection-hooks.js",
+        "/Users/gui/.meteor/packages/matb33_collection-hooks/1.2.1/web.browser/find.js",
+        "/Users/gui/.meteor/packages/matb33_collection-hooks/1.2.1/web.browser/findone.js",
+        "/Users/gui/.meteor/packages/matb33_collection-hooks/1.2.1/web.browser/insert.js",
+        "/Users/gui/.meteor/packages/matb33_collection-hooks/1.2.1/web.browser/remove.js",
+        "/Users/gui/.meteor/packages/matb33_collection-hooks/1.2.1/web.browser/server.js",
+        "/Users/gui/.meteor/packages/matb33_collection-hooks/1.2.1/web.browser/update.js",
+        "/Users/gui/.meteor/packages/matb33_collection-hooks/1.2.1/web.browser/upsert.js",
+        "/Users/gui/.meteor/packages/matb33_collection-hooks/1.2.1/web.browser/users-compat.js"
+      ]
+    }
+  },
+  "typeAcquisition": {
+    "include": [
+      "meteor"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    ".meteor"
+  ]
+}

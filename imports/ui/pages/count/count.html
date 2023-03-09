@@ -1,0 +1,34 @@
+<template name="count">
+  {{> header noReturn=true}}
+  <main class="responsive">
+    {{#if Template.subscriptionsReady}}
+    <article>
+      <h1 class="small">{{happening.title}}</h1>
+      <h2 class="primary small">
+        &nbsp;<i class="large">group</i>&nbsp;{{formatNumber happening.count}}
+      </h2>
+    </article>
+    <div class="space"></div>
+    {{#unless participant}}
+    <button class="responsive extra large-elevate upper" id="countBtn">
+      <i>add</i>
+      <span>Je participe, comptez-moi</span>
+    </button>
+    {{else}}
+    <h3>Vous avez été compté à cette date {{toLocaleDate participant.createdAt}}</h3>
+    <a href="/happening/{{happening._id}}" class="border button responsive upper">
+      Voir et partager le compteur
+    </a>
+    {{/unless}}
+    <div class="medium-divider"></div>
+    <p>
+      Nous ne conservons aucune donnée personnelle. Le système créé un identifiant unique anonyme
+      pour garantir l'unicité du compte des participants.
+    </p>
+    <p class="small">
+      Votre identifiant unique :<br />
+      {{uuid}}
+    </p>
+    {{else}} {{> loading }} {{/if}}
+  </main>
+</template>

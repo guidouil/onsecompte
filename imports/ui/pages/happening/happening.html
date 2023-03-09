@@ -1,0 +1,51 @@
+<template name="happening">
+  {{> header noReturn=true}}
+  <main class="responsive">
+    {{#if Template.subscriptionsReady}}
+    <article>
+      {{#if isOwner}}
+      <a class="absolute right border circle button" href="/edit/{{happening._id}}">
+        <i>edit</i>
+      </a>
+      {{/if}}
+      <h1 class="small">{{happening.title}}</h1>
+      <h1 class="primary small">
+        &nbsp;<i class="large">group</i>&nbsp;{{formatNumber happening.count}}
+      </h1>
+      {{#if happening.description}}
+      <p>{{happening.description}}</p>
+      {{/if}}
+
+      <h5 class="small">Du: {{toLocaleDate happening.startDate}}</h5>
+      {{#if happening.endDate}}
+      <h5 class="small">Au: {{toLocaleDate happening.endDate}}</h5>
+      {{/if}} {{#if happening.isPublic}}
+      <h5 class="small"><i class="large">public</i>&nbsp;Public</h5>
+      {{/if}}
+      <div class="field label suffix border">
+        <input type="text" value="{{url}}" readonly />
+        <label>Lien à partager aux participants</label>
+        <i id="inputUrlIcon">content_copy</i>
+      </div>
+      <button class="border responsive" id="copyUrlButton">
+        Copier le lien à partager aux participants
+      </button>
+      {{#if isOwner}}
+      <div class="space"></div>
+      <a class="button border responsive" href="{{url}}" target="_blank">
+        Ouvrir la page de participation dans un nouvel onglet.
+      </a>
+      {{/if}}
+    </article>
+    <div class="space"></div>
+    <img
+      alt="QR Code {{happening.title}}"
+      src="{{qrCode}}"
+      width="374"
+      height="374"
+      class="square center"
+    />
+    <div class="clear space"></div>
+    {{else}} {{> loading }} {{/if}}
+  </main>
+</template>

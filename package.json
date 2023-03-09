@@ -1,0 +1,17 @@
+{
+  "name": "onsecompte",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "test": "meteor test --once --driver-package meteortesting:mocha"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.21.0",
+    "jquery": "^3.6.4",
+    "jr-qrcode": "^1.1.4",
+    "meteor-node-stubs": "^1.2.5",
+    "simpl-schema": "^3.4.1",
+    "sweetalert2": "^11.7.3"
+  },
+  "devDependencies": {}
+}

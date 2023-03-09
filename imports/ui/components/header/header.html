@@ -1,0 +1,30 @@
+<template name="header">
+  <header>
+    <nav>
+      {{#if isHome}}
+      <button class="circle transparent" id="showMenuBtn">
+        <i>menu</i>
+      </button>
+      {{else}}
+      {{#unless noReturn}}
+      <button class="circle transparent" id="goBackBtn">
+        <i>arrow_backward</i>
+      </button>
+      {{/unless}}
+      {{/if}}
+      <img class="round" src="/logo.png" id="logo">
+      <h5 class="max center-align">
+        {{#if title}}
+        {{title}}
+        {{else}}
+        On Se Compte
+        {{/if}}
+      </h5>
+
+      <button class="circle transparent" id="darkModeBtn">
+        <i>dark_mode</i>
+      </button>
+    </nav>
+  </header>
+  {{> menu}}
+</template>

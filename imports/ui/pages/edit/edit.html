@@ -1,0 +1,11 @@
+<template name="edit">
+  {{> header title="Édition"}}
+  <main class="responsive">
+    <form id="editHappeningForm">
+      {{> happeningForm happening=happening}}
+      <button type="submit" class="responsive extra upper">Enregistrer le compteur</button>
+    </form>
+    <div class="large-divider"></div>
+    <button class="responsive red" id="deleteHappeningBtn">Supprimer le compteur</button>
+  </main>
+</template>

@@ -1,0 +1,28 @@
+<template name="topTen">
+  {{#if Template.subscriptionsReady}} {{#if happenings}}
+  <h3 class="small">Top 10 des compteurs public</h3>
+  <div class="grid">
+    {{#each happenings}}
+    <div class="s12 m12 l6">
+      <a class="row wave fill" href="/happening/{{_id}}">
+        <i>group</i>
+        <div class="max">{{title}}</div>
+        <span class="badge round none primary">{{formatNumber count}}</span>
+      </a>
+    </div>
+    {{/each}}
+  </div>
+  {{else}}
+  <div class="fill medium-height middle-align center-align">
+    <div class="center-align">
+      <i class="extra">group</i>
+      <h5>Pas de compteur pour l'instant</h5>
+      <p>Cliquez sur le bouton pour en créer un</p>
+      <div class="space"></div>
+      <nav class="center-align">
+        <a class="round button" href="/new">Créer un compteur</a>
+      </nav>
+    </div>
+  </div>
+  {{/if}} {{else}} {{> loading }} {{/if}}
+</template>
