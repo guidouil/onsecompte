@@ -3,7 +3,10 @@
   "private": true,
   "scripts": {
     "start": "meteor run",
-    "test": "meteor test --once --driver-package meteortesting:mocha"
+    "bundlesize": "meteor run --settings settings-dev.json --extra-packages bundle-visualizer --production"
+  },
+  "engines": {
+    "node": "14.21.2"
   },
   "dependencies": {
     "@babel/runtime": "^7.21.0",
