@@ -8,6 +8,7 @@ import './loginToken.html';
 import '../../components/header/header.js';
 
 Template.loginToken.onRendered(() => {
+  window.scrollTo(0, 0);
   const token = FlowRouter.getParam('token');
   if (token) {
     $('#loginWithToken').trigger('submit');

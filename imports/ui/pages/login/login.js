@@ -7,6 +7,10 @@ import Swal from 'sweetalert2';
 import './login.html';
 import '../../components/header/header.js';
 
+Template.login.onRendered(() => {
+  window.scrollTo(0, 0);
+});
+
 Template.login.events({
   'submit #requestLoginToken'(event) {
     event.preventDefault();

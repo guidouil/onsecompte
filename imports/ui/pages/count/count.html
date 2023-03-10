@@ -3,10 +3,11 @@
   <main class="responsive">
     {{#if Template.subscriptionsReady}}
     <article>
-      <h1 class="small">{{happening.title}}</h1>
-      <h2 class="primary small">
-        &nbsp;<i class="large">group</i>&nbsp;{{formatNumber happening.count}}
-      </h2>
+      <h2 class="small">{{happening.title}}</h2>
+      <h1 class="primary border small right-align">
+        <i class="left absolute padding extra">group</i>
+        {{formatNumber happening.count}}
+      </h1>
     </article>
     <div class="space"></div>
     {{#unless participant}}
@@ -19,7 +20,7 @@
       Vous avez déjà été compté<br />
       {{toLocaleDate participant.createdAt}}
     </h4>
-    <a href="/happening/{{happening._id}}" class="border button responsive upper">
+    <a href="/happening/{{happening._id}}" class="primary button responsive upper">
       Voir et partager le compteur
     </a>
     {{/unless}}

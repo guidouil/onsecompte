@@ -8,9 +8,10 @@
         <i>edit</i>
       </a>
       {{/if}}
-      <h1 class="small">{{happening.title}}</h1>
-      <h1 class="primary small">
-        &nbsp;<i class="large">group</i>&nbsp;{{formatNumber happening.count}}
+      <h2 class="small">{{happening.title}}</h2>
+      <h1 class="primary border small right-align">
+        <i class="left absolute padding extra">group</i>
+        {{formatNumber happening.count}}
       </h1>
       {{#if happening.description}}
       <p>{{happening.description}}</p>

@@ -8,6 +8,10 @@ import './new.html';
 import '../../components/header/header.js';
 import '../../components/happeningForm/happeningForm.js';
 
+Template.new.onRendered(() => {
+  window.scrollTo(0, 0);
+});
+
 Template.new.events({
   'submit #newHappeningForm'(event) {
     event.preventDefault();
