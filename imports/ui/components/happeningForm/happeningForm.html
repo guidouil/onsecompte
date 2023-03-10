@@ -1,7 +1,19 @@
 <template name="happeningForm">
   <div class="field label border">
-    <input id="title" type="text" required value="{{happening.title}}" />
+    <input id="title" type="text" value="{{happening.title}}" required />
     <label for="title">Titre de l'événement</label>
+  </div>
+  <div class="field middle-align">
+    <nav>
+      <div class="max">
+        <h6>Événement public</h6>
+        <div>L'événement sera listé publiquement.</div>
+      </div>
+      <label for="isPublic" class="switch">
+        <input id="isPublic" type="checkbox" checked="{{happening.isPublic}}" />
+        <span></span>
+      </label>
+    </nav>
   </div>
   <div class="field textarea label border">
     <textarea id="description" value="{{happening.description}}"></textarea>
@@ -10,54 +22,26 @@
   </div>
   <div class="field label prefix border">
     <i>today</i>
-    <input
-      id="startDate"
-      type="date"
-      required
-      value="{{dateInputFormat happening.startDate}}"
-    />
+    <input id="startDate" type="date" value="{{dateInputFormat happening.startDate}}" />
     <label for="startDate" class="active">Date de début de l'événement</label>
+    <span class="helper">Optionnel</span>
   </div>
   <div class="field label prefix border">
     <i>schedule</i>
-    <input
-      id="startTime"
-      type="time"
-      required
-      value="{{timeInputFormat happening.startDate}}"
-    />
+    <input id="startTime" type="time" value="{{timeInputFormat happening.startDate}}" />
     <label for="startTime" class="active">Heure de début de l'événement</label>
+    <span class="helper">Optionnel</span>
   </div>
   <div class="field label prefix border">
     <i>event</i>
-    <input
-      id="endDate"
-      type="date"
-      value="{{dateInputFormat happening.endDate}}"
-    />
+    <input id="endDate" type="date" value="{{dateInputFormat happening.endDate}}" />
     <label for="endDate" class="active">Date de fin de l'événement</label>
     <span class="helper">Optionnel</span>
   </div>
   <div class="field label prefix border">
     <i>schedule</i>
-    <input
-      id="endTime"
-      type="time"
-      value="{{timeInputFormat happening.endDate}}"
-    />
+    <input id="endTime" type="time" value="{{timeInputFormat happening.endDate}}" />
     <label for="endTime" class="active">Heure de fin de l'événement</label>
     <span class="helper">Optionnel</span>
-  </div>
-  <div class="field middle-align">
-    <nav>
-      <div class="max">
-        <h6>Événement public</h6>
-        <div>L'événement sera listé publiquement</div>
-      </div>
-      <label for="isPublic" class="switch">
-        <input id="isPublic" type="checkbox" checked="{{happening.isPublic}}" />
-        <span></span>
-      </label>
-    </nav>
   </div>
 </template>

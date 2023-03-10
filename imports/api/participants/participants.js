@@ -19,6 +19,7 @@ const locationSchema = new SimpleSchema({
     optional: true,
   },
 });
+
 const participantSchema = new SimpleSchema({
   happeningId: {
     type: String,

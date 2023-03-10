@@ -10,12 +10,10 @@ Meteor.methods({
       throw new Meteor.Error(401, 'Vous devez être connecté.');
     }
     check(title, String);
-    check(startDate, Date);
     check(isPublic, Boolean);
     const happening = {
       ownerId: Meteor.userId(),
       title,
-      startDate,
       isPublic,
       createdAt: new Date(),
     };
@@ -26,6 +24,10 @@ Meteor.methods({
     if (url) {
       check(url, String);
       happening.url = url;
+    }
+    if (startDate) {
+      check(startDate, Date);
+      happening.startDate = startDate;
     }
     if (endDate) {
       check(endDate, Date);
@@ -43,11 +45,9 @@ Meteor.methods({
       throw new Meteor.Error(403, 'Vous devez être le propriétaire.');
     }
     check(title, String);
-    check(startDate, Date);
     check(isPublic, Boolean);
     const happening = {
       title,
-      startDate,
       isPublic,
       updatedAt: new Date(),
     };
@@ -58,6 +58,10 @@ Meteor.methods({
     if (url) {
       check(url, String);
       happening.url = url;
+    }
+    if (startDate) {
+      check(startDate, Date);
+      happening.startDate = startDate;
     }
     if (endDate) {
       check(endDate, Date);

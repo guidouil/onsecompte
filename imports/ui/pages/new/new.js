@@ -19,7 +19,9 @@ Template.new.events({
     const description = $('#description').val();
     let startDate = $('#startDate').val();
     const startTime = $('#startTime').val();
-    startDate = new Date(`${startDate} ${startTime}`);
+    if (startDate) {
+      startDate = new Date(`${startDate} ${startTime}`);
+    }
     let endDate = $('#endDate').val();
     const endTime = $('#endTime').val();
     if (endDate) {

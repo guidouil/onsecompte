@@ -35,6 +35,7 @@ const happeningSchema = new SimpleSchema({
   },
   startDate: {
     type: Date,
+    optional: true,
   },
   endDate: {
     type: Date,
