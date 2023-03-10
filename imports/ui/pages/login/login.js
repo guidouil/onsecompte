@@ -1,28 +1,28 @@
-import { Template } from "meteor/templating";
-import { Accounts } from "meteor/accounts-base";
-import { FlowRouter } from "meteor/ostrio:flow-router-extra";
-import { $ } from "meteor/jquery";
-import Swal from "sweetalert2";
+import { Template } from 'meteor/templating';
+import { Accounts } from 'meteor/accounts-base';
+import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
+import { $ } from 'meteor/jquery';
+import Swal from 'sweetalert2';
 
-import "./login.html";
-import "../../components/header/header.js";
+import './login.html';
+import '../../components/header/header.js';
 
 Template.login.events({
-  "submit #requestLoginToken"(event) {
+  'submit #requestLoginToken'(event) {
     event.preventDefault();
-    let email = $("#email").val();
+    let email = $('#email').val();
     if (!email) {
-      $("#emailField").addClass("invalid");
-      $("#email").focus();
+      $('#emailField').addClass('invalid');
+      $('#email').focus();
       return false;
     }
     email = email.trim().toLowerCase();
     const re = /\S+@\S+\.\S+/;
     if (!re.test(email)) {
       Swal.fire({
-        title: "Error!",
-        text: "Merci de saisir une adresse valide",
-        icon: "error",
+        title: 'Error!',
+        text: 'Merci de saisir une adresse valide',
+        icon: 'error',
       });
       return false;
     }
@@ -30,16 +30,16 @@ Template.login.events({
     Accounts.requestLoginTokenForUser(options, (error) => {
       if (error) {
         Swal.fire({
-          title: "Error!",
+          title: 'Error!',
           text: error.message,
-          icon: "error",
+          icon: 'error',
         });
       } else {
         FlowRouter.go(`/login-token/${email}`);
       }
     });
   },
-  "input #email"() {
-    $("#emailField").removeClass("invalid");
+  'input #email'() {
+    $('#emailField').removeClass('invalid');
   },
 });

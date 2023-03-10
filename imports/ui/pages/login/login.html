@@ -1,12 +1,18 @@
 <template name="login">
   {{> header title="On Se Connecte"}}
   <main class="responsive">
-    <h1 class="small">Se connecter</h1>
-    <h3 class="small">Connexion sans mot de passe. Vous recevrez un code à usage unique valable une heure.</h3>
+    <h1 class="small">Se connecter ou créer un compte</h1>
+    <h3 class="small">
+      Connexion sans mot de passe. Vous recevrez un code à usage unique valable une heure.
+    </h3>
     <form id="requestLoginToken">
       <div class="field label border extra" id="emailField">
-        <input type="email" id="email">
+        <input type="email" id="email" required />
         <label for="email">Adresse email</label>
+        <span class="helper">
+          Vous pouvez utiliser une adresse jetable comme
+          <a class="link" href="https://yopmail.com/" target="_blank">YOPmail</a>
+        </span>
       </div>
       <button type="submit" class="responsive extra">RECEVOIR LE CODE</button>
     </form>

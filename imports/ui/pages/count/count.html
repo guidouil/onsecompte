@@ -15,7 +15,10 @@
       <span>Je participe, comptez-moi</span>
     </button>
     {{else}}
-    <h3>Vous avez été compté à cette date {{toLocaleDate participant.createdAt}}</h3>
+    <h4 class="small center-align">
+      Vous avez déjà été compté<br />
+      {{toLocaleDate participant.createdAt}}
+    </h4>
     <a href="/happening/{{happening._id}}" class="border button responsive upper">
       Voir et partager le compteur
     </a>
