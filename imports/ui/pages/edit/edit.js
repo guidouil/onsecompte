@@ -66,7 +66,7 @@ Template.edit.events({
       icon: 'question',
       showCancelButton: true,
       confirmButtonText: 'Supprimer',
-      cancelButtonText: `Annuler`,
+      cancelButtonText: 'Annuler',
     }).then((result) => {
       if (result.isConfirmed) {
         Meteor.call('happenings.remove', _id, (error) => {

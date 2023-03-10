@@ -1,7 +1,7 @@
-import { Mongo } from "meteor/mongo";
-import SimpleSchema from "simpl-schema";
+import { Mongo } from 'meteor/mongo';
+import SimpleSchema from 'simpl-schema';
 
-export const Happenings = new Mongo.Collection("happenings");
+export const Happenings = new Mongo.Collection('happenings');
 
 Happenings.deny({
   insert: () => true,
@@ -47,11 +47,15 @@ const happeningSchema = new SimpleSchema({
     type: Number,
     optional: true,
   },
+  likes: {
+    type: Number,
+    optional: true,
+  },
   locations: {
     type: Array,
     optional: true,
   },
-  "locations.$": {
+  'locations.$': {
     type: locationSchema,
   },
   createdAt: {

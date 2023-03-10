@@ -26,6 +26,10 @@ const participantSchema = new SimpleSchema({
   uuid: {
     type: String,
   },
+  isLike: {
+    type: Boolean,
+    optional: true,
+  },
   location: {
     type: locationSchema,
     optional: true,

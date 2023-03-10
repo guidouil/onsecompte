@@ -5,7 +5,7 @@ import { check } from 'meteor/check';
 import { Participants } from './participants.js';
 
 Meteor.methods({
-  'participants.insert'({ happeningId, uuid }) {
+  'participants.insert'({ happeningId, uuid, isLike }) {
     check(happeningId, String);
     check(uuid, String);
     if (Participants.find({ happeningId, uuid }).count() === 1) {
@@ -16,6 +16,17 @@ Meteor.methods({
       uuid,
       createdAt: new Date(),
     };
+    if (isLike !== undefined) {
+      check(isLike, Boolean);
+      participant.isLike = isLike;
+    }
     return Participants.insert(participant);
+  },
+  'participants.remove'(_id) {
+    check(_id, String);
+    if (Participants.find({ _id }).count() !== 1) {
+      throw new Meteor.Error(404, 'Participation non trouvée.');
+    }
+    return Participants.remove({ _id });
   },
 });

@@ -51,8 +51,49 @@ Template.count.events({
           icon: 'error',
         });
       } else {
-        Swal.fire('Bravo!', 'Vous êtes compté!', 'success');
+        Swal.fire('Bravo!', 'Vous êtes compté en tant que participant!', 'success');
         FlowRouter.go(`/happening/${happeningId}`);
+      }
+    });
+  },
+  'click #likeBtn'(event, templateInstance) {
+    const happeningId = FlowRouter.getParam('_id');
+    const uuid = templateInstance.uuid.get();
+    Meteor.call('participants.insert', { happeningId, uuid, isLike: true }, (error) => {
+      if (error) {
+        Swal.fire({
+          title: 'Error!',
+          text: error.message,
+          icon: 'error',
+        });
+      } else {
+        Swal.fire('Bravo!', 'Vous êtes compté en tant que soutient!', 'success');
+        FlowRouter.go(`/happening/${happeningId}`);
+      }
+    });
+  },
+  'click #removeParticipantBtn'() {
+    const happeningId = FlowRouter.getParam('_id');
+    const uuid = Template.instance().uuid.get();
+    const participant = Participants.findOne({ happeningId, uuid });
+    Swal.fire({
+      title: 'Supprimer votre comptage ?',
+      text: 'Il sera effacé immédiatemant.',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Supprimer',
+      cancelButtonText: 'Annuler',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Meteor.call('participants.remove', participant._id, (error) => {
+          if (error) {
+            Swal.fire({
+              title: 'Error!',
+              text: error.message,
+              icon: 'error',
+            });
+          }
+        });
       }
     });
   },
