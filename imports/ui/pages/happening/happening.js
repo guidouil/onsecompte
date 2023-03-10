@@ -15,6 +15,10 @@ Template.happening.onCreated(() => {
   instance.subscribe('happenings.by_id', _id);
 });
 
+Template.happening.onRendered(() => {
+  window.scrollTo(0, 0);
+});
+
 Template.happening.helpers({
   happening() {
     const _id = FlowRouter.getParam('_id');

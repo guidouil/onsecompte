@@ -1,5 +1,5 @@
 <template name="header">
-  <header>
+  <header class="fill">
     <nav>
       {{#if isHome}}
       <button class="circle transparent" id="showMenuBtn">
@@ -9,8 +9,9 @@
       <button class="circle transparent" id="goBackBtn">
         <i>arrow_backward</i>
       </button>
+      {{else}}
+      <img width="44" src="/logo.png" id="logo" />
       {{/unless}} {{/if}}
-      <!-- <img class="round" src="/logo.png" id="logo"> -->
       <h6 class="max center-align">{{#if title}} {{title}} {{else}} On Se Compte {{/if}}</h6>
 
       <button class="circle transparent" id="darkModeBtn">

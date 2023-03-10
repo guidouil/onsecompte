@@ -20,6 +20,10 @@ Template.count.onCreated(() => {
   instance.uuid = new ReactiveVar(uuid);
 });
 
+Template.count.onRendered(() => {
+  window.scrollTo(0, 0);
+});
+
 Template.count.helpers({
   uuid() {
     return Template.instance().uuid.get();
