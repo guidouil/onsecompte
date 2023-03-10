@@ -1,5 +1,5 @@
 <template name="profile">
-  {{> header title="Mon profil"}}
+  {{> header title="Mon profil" url="home"}}
   <main class="responsive">
     <button class="absolute right transparent circle orange" id="logOutBtn"><i>logout</i></button>
     <h3 class="small">Profil de {{currentUser.emails.[0].address}}</h3>
@@ -17,6 +17,8 @@
       </div>
       {{/each}}
     </div>
+    <div class="large-space"></div>
+    <a href="/new" class="button responsive">Créer un nouveau compteur</a>
     {{else}}
     <div class="fill medium-height middle-align center-align">
       <div class="center-align">
