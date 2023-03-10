@@ -21,10 +21,9 @@
       </h2>
       {{#if happening.description}}
       <p>{{happening.description}}</p>
-      {{/if}}
-
+      {{/if}} {{#if happening.startDate}}
       <h5 class="small">Du: {{toLocaleDate happening.startDate}}</h5>
-      {{#if happening.endDate}}
+      {{/if}} {{#if happening.endDate}}
       <h5 class="small">Au: {{toLocaleDate happening.endDate}}</h5>
       {{/if}} {{#if happening.isPublic}}
       <h5 class="small"><i class="large">public</i>&nbsp;Public</h5>
@@ -34,15 +33,13 @@
         <label>Lien à partager aux participants</label>
         <i id="inputUrlIcon">content_copy</i>
       </div>
-      <button class="border responsive" id="copyUrlButton">
+      <button class="responsive" id="copyUrlButton">
         Copier le lien à partager aux participants
       </button>
-      {{#if isOwner}}
       <div class="space"></div>
       <a class="button border responsive" href="{{url}}" target="_blank">
         Ouvrir la page de participation dans un nouvel onglet.
       </a>
-      {{/if}}
     </article>
     <div class="space"></div>
     <img
