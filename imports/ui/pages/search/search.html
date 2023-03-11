@@ -1,10 +1,12 @@
 <template name="search">
   {{> header}}
   <main class="responsive">
-    <div class="field label suffix border extra">
-      <input type="text" value="Bientôt" readonly />
-      <label>Chercher un événement public</label>
-      <i>search</i>
-    </div>
+    <form id="searchForm">
+      <div class="field label suffix border extra">
+        <input type="search" id="search" />
+        <label>Chercher un événement public</label>
+        <i>search</i>
+      </div>
+    </form>
   </main>
 </template>

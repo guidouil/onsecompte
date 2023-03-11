@@ -1,7 +1,6 @@
 <template name="profile">
   {{> header title="Mon profil" url="home"}}
   <main class="responsive">
-    <button class="absolute right transparent circle orange" id="logOutBtn"><i>logout</i></button>
     <h3 class="small">Profil de {{currentUser.emails.[0].address}}</h3>
     <div class="large-divider"></div>
     <h4 class="small">Mes compteurs</h4>
@@ -32,7 +31,11 @@
       </div>
     </div>
     {{/if}}
-
+    <div class="large-divider"></div>
+    <button class="responsive small orange" id="logOutBtn">
+      <i>logout</i>
+      Se deconnecter
+    </button>
     <!-- <button class="red disabled">Supprimer le compte</button> -->
   </main>
 </template>
