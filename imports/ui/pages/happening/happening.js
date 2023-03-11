@@ -19,7 +19,7 @@ Template.happening.onCreated(() => {
     const happening = Happenings.findOne({ _id });
     if (happening) {
       instance.happening.set(happening);
-      document.title = `OnSeCompte: ${happening.title}`;
+      document.title = happening.title;
     }
   });
 });
