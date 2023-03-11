@@ -2,7 +2,7 @@
   {{> header noReturn=true}}
   <main class="responsive">
     {{#if Template.subscriptionsReady}}
-    <article>
+    <article class="large-elevate">
       <h2 class="small">{{happening.title}}</h2>
       <h1 class="primary small right-align">
         <i class="left absolute padding extra">group</i>
@@ -12,30 +12,30 @@
       <h2 class="secondary small right-align">
         <i class="left absolute padding extra">favorite</i>
         <span class="padding">{{formatNumber happening.likes}}</span>
-        <div class="tooltip">Soutients</div>
+        <div class="tooltip">Soutiens</div>
       </h2>
       <p class="center-align">
-        Participants + Soutients = {{formatNumber (add happening.count happening.likes)}}
+        Participants + Soutiens = {{formatNumber (add happening.count happening.likes)}}
       </p>
     </article>
     <div class="space"></div>
     {{#unless participant}}
     <button class="primary responsive extra large-elevate upper" id="countBtn">
       <i>group</i>
-      <span>Je participe, comptez-moi</span>
+      <span>Je participe, comptez-moi.</span>
     </button>
-    <h4 class="center-align">OU</h4>
+    <h5 class="center-align">ou</h5>
     <button class="secondary responsive extra large-elevate upper" id="likeBtn">
       <i>favorite</i>
-      <span>Je soutient, comptez-moi</span>
+      <span>Je soutiens, comptez-moi.</span>
     </button>
     {{else}}
-    <h4 class="small center-align">
-      Vous avez déjà été compté<br />
-      en temps que {{#if participant.isLike}}soutient{{else}}participant{{/if}}<br />
+    <h3 class="small center-align">
+      Vous êtes déjà compté<br />
+      en temps que {{#if participant.isLike}}soutien{{else}}participant{{/if}}<br />
       {{toLocaleDate participant.createdAt}}
-    </h4>
-    <a href="/happening/{{happening._id}}" class="primary button responsive upper">
+    </h3>
+    <a href="/happening/{{happening._id}}" class="primary button responsive upper extra">
       Voir et partager le compteur
     </a>
     {{/unless}}
@@ -50,7 +50,9 @@
     </p>
     {{#if participant}}
     <div class="space"></div>
+    <div class="medium-divider"></div>
     <button class="responsive red small" id="removeParticipantBtn">Supprimmer mon comptage</button>
+    <div class="space"></div>
     {{/if}} {{else}} {{> loading }} {{/if}}
   </main>
 </template>

@@ -15,6 +15,8 @@ Meteor.methods({
       ownerId: Meteor.userId(),
       title,
       isPublic,
+      count: 0,
+      likes: 0,
       createdAt: new Date(),
     };
     if (description) {
