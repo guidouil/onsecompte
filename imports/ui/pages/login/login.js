@@ -9,6 +9,7 @@ import '../../components/header/header.js';
 
 Template.login.onRendered(() => {
   window.scrollTo(0, 0);
+  window.prerenderReady = true; //Tell pre-render we are now ready
 });
 
 Template.login.events({

@@ -9,3 +9,8 @@ import '../../components/topTen/topTen.js';
 Template.home.onCreated(() => {
   document.title = 'On Se Compte';
 });
+
+Template.home.onRendered(() => {
+  // @ts-ignore
+  window.prerenderReady = true; //Tell pre-render we are now ready
+});

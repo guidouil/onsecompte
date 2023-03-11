@@ -26,6 +26,7 @@ Template.happening.onCreated(() => {
 
 Template.happening.onRendered(() => {
   window.scrollTo(0, 0);
+  window.prerenderReady = true; //Tell pre-render we are now ready
 });
 
 Template.happening.helpers({
