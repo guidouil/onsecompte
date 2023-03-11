@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
+import { FlowRouterMeta, FlowRouterTitle } from 'meteor/ostrio:flow-router-meta';
 
 // Import needed templates
 import '../../ui/layouts/body/body.js';
@@ -104,3 +105,6 @@ FlowRouter.route('*', {
     this.render('bodyLayout', 'notFound');
   },
 });
+
+new FlowRouterMeta(FlowRouter);
+new FlowRouterTitle(FlowRouter);

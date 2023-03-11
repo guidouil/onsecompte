@@ -24,3 +24,4 @@ ostrio:flow-router-extra # FlowRouter is a very simple router for Meteor
 accounts-passwordless@2.1.3
 aldeed:collection2
 matb33:collection-hooks
+ostrio:flow-router-meta
