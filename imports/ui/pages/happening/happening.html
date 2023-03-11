@@ -19,6 +19,9 @@
         <span class="padding">{{formatNumber happening.likes}}</span>
         <div class="tooltip">Soutients</div>
       </h2>
+      <p class="center-align">
+        Participants + Soutients = {{formatNumber (add happening.count happening.likes)}}
+      </p>
       {{#if happening.description}}
       <p>{{happening.description}}</p>
       {{/if}} {{#if happening.startDate}}
