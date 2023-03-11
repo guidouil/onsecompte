@@ -58,7 +58,11 @@ Template.count.events({
           icon: 'error',
         });
       } else {
-        Swal.fire('Bravo!', 'Vous êtes compté en tant que participant!', 'success');
+        Swal.fire(
+          'Merci',
+          'Vous êtes compté en tant que participant. Maintenant faites les autres se compter aussi.',
+          'success',
+        );
         FlowRouter.go(`/happening/${happeningId}`);
       }
     });
@@ -74,7 +78,11 @@ Template.count.events({
           icon: 'error',
         });
       } else {
-        Swal.fire('Bravo!', 'Vous êtes compté en tant que soutient!', 'success');
+        Swal.fire(
+          'Merci!',
+          'Vous êtes compté en tant que soutient. Maintenant faites les autres se compter aussi.',
+          'success',
+        );
         FlowRouter.go(`/happening/${happeningId}`);
       }
     });

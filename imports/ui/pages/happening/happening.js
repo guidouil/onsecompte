@@ -37,7 +37,7 @@ Template.happening.helpers({
     const url = Meteor.absoluteUrl(`/c/${_id}`);
     return jrQrcode.getQrBase64(url, {
       correctLevel: 0,
-      background: '#000',
+      background: '#6751a4',
       foreground: '#fff',
       padding: 20,
       width: 512,
