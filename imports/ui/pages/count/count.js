@@ -18,6 +18,14 @@ Template.count.onCreated(() => {
   const uuid = new DeviceUUID().get();
   instance.subscribe('participants.by_hnuuid', _id, uuid);
   instance.uuid = new ReactiveVar(uuid);
+  instance.happening = new ReactiveVar();
+  instance.autorun(() => {
+    const happening = Happenings.findOne({ _id });
+    if (happening) {
+      instance.happening.set(happening);
+      document.title = `OnSeCompte: ${happening.title}`;
+    }
+  });
 });
 
 Template.count.onRendered(() => {
@@ -29,8 +37,7 @@ Template.count.helpers({
     return Template.instance().uuid.get();
   },
   happening() {
-    const _id = FlowRouter.getParam('_id');
-    return Happenings.findOne({ _id });
+    return Template.instance().happening.get();
   },
   participant() {
     const happeningId = FlowRouter.getParam('_id');

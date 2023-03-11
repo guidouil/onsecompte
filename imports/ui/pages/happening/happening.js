@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { ReactiveVar } from 'meteor/reactive-var';
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 import jrQrcode from 'jr-qrcode';
 
@@ -13,6 +14,14 @@ Template.happening.onCreated(() => {
   const instance = Template.instance();
   const _id = FlowRouter.getParam('_id');
   instance.subscribe('happenings.by_id', _id);
+  instance.happening = new ReactiveVar();
+  instance.autorun(() => {
+    const happening = Happenings.findOne({ _id });
+    if (happening) {
+      instance.happening.set(happening);
+      document.title = `OnSeCompte: ${happening.title}`;
+    }
+  });
 });
 
 Template.happening.onRendered(() => {
@@ -21,8 +30,7 @@ Template.happening.onRendered(() => {
 
 Template.happening.helpers({
   happening() {
-    const _id = FlowRouter.getParam('_id');
-    return Happenings.findOne({ _id });
+    return Template.instance().happening.get();
   },
   qrCode() {
     const _id = FlowRouter.getParam('_id');
@@ -43,8 +51,8 @@ Template.happening.helpers({
   isOwner() {
     const ownerId = Meteor.userId();
     if (ownerId) {
-      const _id = FlowRouter.getParam('_id');
-      return Happenings.find({ _id, ownerId }).count() === 1;
+      const happening = Template.instance().happening.get();
+      return happening && happening.ownerId === ownerId;
     }
     return false;
   },
