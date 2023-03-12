@@ -63,7 +63,7 @@ Template.count.events({
           'Vous êtes compté en tant que participant. Maintenant faites les autres se compter aussi.',
           'success',
         );
-        FlowRouter.go(`/happening/${happening.slug}`);
+        FlowRouter.go(`/compteur/${happening.slug}`);
       }
     });
   },
@@ -84,7 +84,7 @@ Template.count.events({
           'Vous êtes compté en tant que soutient. Maintenant faites les autres se compter aussi.',
           'success',
         );
-        FlowRouter.go(`/happening/${happening.slug}`);
+        FlowRouter.go(`/compteur/${happening.slug}`);
       }
     });
   },

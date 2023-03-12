@@ -12,7 +12,7 @@ import '../../ui/pages/login/login.js';
 import '../../ui/pages/loginToken/loginToken.js';
 import '../../ui/pages/profile/profile.js';
 import '../../ui/pages/new/new.js';
-import '../../ui/pages/happening/happening.js';
+import '../../ui/pages/counter/counter.js';
 import '../../ui/pages/edit/edit.js';
 import '../../ui/pages/count/count.js';
 import '../../ui/pages/search/search.js';
@@ -88,8 +88,8 @@ FlowRouter.route('/new', {
   },
 });
 
-FlowRouter.route('/happening/:slug', {
-  name: 'happening',
+FlowRouter.route('/compteur/:slug', {
+  name: 'counter',
   waitOn(params) {
     return [Meteor.subscribe('happenings.by_slug', params.slug)];
   },
@@ -108,7 +108,7 @@ FlowRouter.route('/happening/:slug', {
     return 'On Se Compte';
   },
   action() {
-    this.render('bodyLayout', 'happening');
+    this.render('bodyLayout', 'counter');
   },
 });
 
@@ -137,7 +137,7 @@ FlowRouter.route('/edit/:_id', {
   },
 });
 
-FlowRouter.route('/c/:slug', {
+FlowRouter.route('/a/:slug', {
   name: 'count',
   waitOn(params) {
     return [Meteor.subscribe('happenings.by_slug', params.slug)];

@@ -5,13 +5,13 @@ import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 import jrQrcode from 'jr-qrcode';
 import Swal from 'sweetalert2';
 
-import './happening.html';
+import './counter.html';
 import '../../components/header/header.js';
 import '../../components/loading/loading.js';
 
 import { Happenings } from '/imports/api/happenings/happenings';
 
-Template.happening.onCreated(() => {
+Template.counter.onCreated(() => {
   const instance = Template.instance();
   instance.happening = new ReactiveVar();
   instance.isOwner = new ReactiveVar();
@@ -27,18 +27,18 @@ Template.happening.onCreated(() => {
   });
 });
 
-Template.happening.onRendered(() => {
+Template.counter.onRendered(() => {
   window.scrollTo(0, 0);
   window.prerenderReady = true; //Tell pre-render we are now ready
 });
 
-Template.happening.helpers({
+Template.counter.helpers({
   happening() {
     return Template.instance().happening.get();
   },
   qrCode() {
     const slug = FlowRouter.getParam('slug');
-    const url = Meteor.absoluteUrl(`/c/${slug}`);
+    const url = Meteor.absoluteUrl(`/a/${slug}`);
     return jrQrcode.getQrBase64(url, {
       correctLevel: 0,
       background: '#6751a4',
@@ -50,17 +50,17 @@ Template.happening.helpers({
   },
   url() {
     const happening = Template.instance().happening.get();
-    return Meteor.absoluteUrl(`/c/${happening.slug}`);
+    return Meteor.absoluteUrl(`/a/${happening.slug}`);
   },
   isOwner() {
     return Template.instance().isOwner.get();
   },
 });
 
-Template.happening.events({
+Template.counter.events({
   'click #copyUrlButton'() {
     const slug = FlowRouter.getParam('slug');
-    const url = Meteor.absoluteUrl(`/c/${slug}`);
+    const url = Meteor.absoluteUrl(`/a/${slug}`);
     navigator.clipboard.writeText(url);
     $('#inputUrlIcon').html('done').addClass('green');
     Swal.fire('Copié', 'Vous pouvez coller ce lien où vous voulez.', 'success');

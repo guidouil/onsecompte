@@ -86,12 +86,12 @@ WebApp.connectHandlers.use('/sitemap.xml', (req, res) => {
   );
   items.map((item) => {
     pushToSiteMap({
-      loc: Meteor.absoluteUrl(`/happening/${item.slug}`),
+      loc: Meteor.absoluteUrl(`/compteur/${item.slug}`),
       lastmod: item.updatedAt || item.createdAt,
       priority: 0.8,
     });
     pushToSiteMap({
-      loc: Meteor.absoluteUrl(`/c/${item.slug}`),
+      loc: Meteor.absoluteUrl(`/a/${item.slug}`),
       lastmod: item.updatedAt || item.createdAt,
       priority: 0.8,
     });

@@ -65,7 +65,7 @@ Template.new.events({
             icon: 'error',
           });
         } else {
-          FlowRouter.go(`/happening/${slug}`);
+          FlowRouter.go(`/compteur/${slug}`);
         }
       });
     });
