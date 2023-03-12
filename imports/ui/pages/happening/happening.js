@@ -15,11 +15,15 @@ Template.happening.onCreated(() => {
   const slug = FlowRouter.getParam('slug');
   instance.subscribe('happenings.by_slug', slug);
   instance.happening = new ReactiveVar();
+  instance.isOwner = new ReactiveVar();
   instance.autorun(() => {
     const happening = Happenings.findOne();
     if (happening) {
       instance.happening.set(happening);
       document.title = happening.title;
+      Meteor.call('happenings.isOwner', happening._id, (error, isOwner) => {
+        instance.isOwner.set(isOwner);
+      });
     }
   });
 });
@@ -50,12 +54,7 @@ Template.happening.helpers({
     return Meteor.absoluteUrl(`/c/${happening.slug}`);
   },
   isOwner() {
-    const ownerId = Meteor.userId();
-    if (ownerId) {
-      const happening = Template.instance().happening.get();
-      return happening && happening.ownerId === ownerId;
-    }
-    return false;
+    return Template.instance().isOwner.get();
   },
 });
 

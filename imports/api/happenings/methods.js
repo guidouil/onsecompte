@@ -94,4 +94,15 @@ Meteor.methods({
     }
     return Happenings.find({ slug }).count() === 0;
   },
+  'happenings.isOwner'(_id) {
+    const ownerId = Meteor.userId();
+    if (!ownerId) {
+      return false;
+    }
+    check(_id, String);
+    if (Happenings.find({ _id, ownerId }).count() === 0) {
+      return false;
+    }
+    return true;
+  },
 });

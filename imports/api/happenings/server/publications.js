@@ -26,10 +26,10 @@ Meteor.publish('happenings.by_owner', () => {
 
 Meteor.publish('happenings.by_id', (_id) => {
   check(_id, String);
-  return Happenings.find({ _id });
+  return Happenings.find({ _id }, { fields: { ownerId: 0 } });
 });
 
 Meteor.publish('happenings.by_slug', (slug) => {
   check(slug, String);
-  return Happenings.find({ slug });
+  return Happenings.find({ slug }, { fields: { ownerId: 0 } });
 });
