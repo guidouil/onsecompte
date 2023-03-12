@@ -5,7 +5,11 @@
     <article class="large-elevate">
       {{#if isOwner}}
       <a class="absolute right border circle button" href="/edit/{{happening._id}}">
+        {{#if happening.isPublic}}
+        <i>public</i>
+        {{else}}
         <i>edit</i>
+        {{/if}}
       </a>
       {{/if}}
       <h2 class="small">{{happening.title}}</h2>

@@ -46,8 +46,8 @@ Template.happening.helpers({
     });
   },
   url() {
-    const _id = FlowRouter.getParam('_id');
-    return Meteor.absoluteUrl(`/c/${_id}`);
+    const happening = Template.instance().happening.get();
+    return Meteor.absoluteUrl(`/c/${happening.shortId}`);
   },
   isOwner() {
     const ownerId = Meteor.userId();

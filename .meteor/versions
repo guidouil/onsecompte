@@ -1,6 +1,7 @@
 accounts-base@2.2.7
 accounts-passwordless@2.1.3
 aldeed:collection2@3.5.0
+aldeed:schema-index@3.0.0
 allow-deny@1.1.1
 autoupdate@1.8.0
 babel-compiler@7.10.3

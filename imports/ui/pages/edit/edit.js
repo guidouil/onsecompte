@@ -26,38 +26,59 @@ Template.edit.events({
     event.preventDefault();
     const _id = FlowRouter.getParam('_id');
     const title = $('#title').val();
-    const description = $('#description').val();
-    let startDate = $('#startDate').val();
-    const startTime = $('#startTime').val();
-    if (startDate) {
-      startDate = new Date(`${startDate} ${startTime}`);
-    }
-    let endDate = $('#endDate').val();
-    const endTime = $('#endTime').val();
-    if (endDate) {
-      endDate = new Date(`${endDate} ${endTime}`);
-    }
-    const isPublic = document.getElementById('isPublic').checked;
-    const happening = {
-      _id,
-      title,
-      description,
-      startDate,
-      startTime,
-      endDate,
-      endTime,
-      isPublic,
-    };
-    Meteor.call('happenings.update', happening, (error) => {
+    const shortId = $('#shortId').val();
+    Meteor.call('happenings.isUniqueShortId', { shortId, _id }, (error, isUnique) => {
       if (error) {
         Swal.fire({
-          title: 'Error!',
+          title: 'Bug!',
           text: error.message,
           icon: 'error',
         });
-      } else {
-        FlowRouter.go(`/happening/${_id}`);
+        return false;
       }
+      if (!isUnique) {
+        Swal.fire({
+          title: 'Déjà pris',
+          text: 'Ce nom court est déjà pris par un autre événement',
+          icon: 'error',
+        });
+        $('#shortId').focus();
+        return false;
+      }
+      const description = $('#description').val();
+      let startDate = $('#startDate').val();
+      const startTime = $('#startTime').val();
+      if (startDate) {
+        startDate = new Date(`${startDate} ${startTime}`);
+      }
+      let endDate = $('#endDate').val();
+      const endTime = $('#endTime').val();
+      if (endDate) {
+        endDate = new Date(`${endDate} ${endTime}`);
+      }
+      const isPublic = document.getElementById('isPublic').checked;
+      const happening = {
+        _id,
+        title,
+        shortId,
+        description,
+        startDate,
+        startTime,
+        endDate,
+        endTime,
+        isPublic,
+      };
+      Meteor.call('happenings.update', happening, (errorBis) => {
+        if (errorBis) {
+          Swal.fire({
+            title: 'Bug!',
+            text: errorBis.message,
+            icon: 'error',
+          });
+        } else {
+          FlowRouter.go(`/happening/${_id}`);
+        }
+      });
     });
   },
   'click #deleteHappeningBtn'() {
@@ -74,7 +95,7 @@ Template.edit.events({
         Meteor.call('happenings.remove', _id, (error) => {
           if (error) {
             Swal.fire({
-              title: 'Error!',
+              title: 'Bug!',
               text: error.message,
               icon: 'error',
             });

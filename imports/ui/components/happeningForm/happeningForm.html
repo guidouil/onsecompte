@@ -1,8 +1,16 @@
 <template name="happeningForm">
-  <div class="field label border">
+  <div class="field label border large">
     <input id="title" type="text" value="{{happening.title}}" required />
     <label for="title">Titre de l'événement</label>
   </div>
+  <div class="field label border small active">
+    <input id="shortId" type="text" value="{{happening.shortId}}" required />
+    <span class="helper">
+      Nom court pour l'adresse URL. Ne doit pas contenir d'espace ou de caractère spécial. Doit être
+      unique.
+    </span>
+  </div>
+  <div class="space"></div>
   <div class="field middle-align">
     <nav>
       <div class="max">
@@ -11,37 +19,48 @@
       </div>
       <label for="isPublic" class="switch">
         <input id="isPublic" type="checkbox" checked="{{happening.isPublic}}" />
-        <span></span>
+        <span>
+          <i>close</i>
+          <i>public</i>
+        </span>
       </label>
     </nav>
   </div>
-  <div class="field textarea label border">
-    <textarea id="description" value="{{happening.description}}"></textarea>
-    <label for="description">Description de l'événement</label>
-    <span class="helper">Optionnel</span>
-  </div>
-  <div class="field label prefix border">
-    <i>today</i>
-    <input id="startDate" type="date" value="{{dateInputFormat happening.startDate}}" />
-    <label for="startDate" class="active">Date de début de l'événement</label>
-    <span class="helper">Optionnel</span>
-  </div>
-  <div class="field label prefix border">
-    <i>schedule</i>
-    <input id="startTime" type="time" value="{{timeInputFormat happening.startDate}}" />
-    <label for="startTime" class="active">Heure de début de l'événement</label>
-    <span class="helper">Optionnel</span>
-  </div>
-  <div class="field label prefix border">
-    <i>event</i>
-    <input id="endDate" type="date" value="{{dateInputFormat happening.endDate}}" />
-    <label for="endDate" class="active">Date de fin de l'événement</label>
-    <span class="helper">Optionnel</span>
-  </div>
-  <div class="field label prefix border">
-    <i>schedule</i>
-    <input id="endTime" type="time" value="{{timeInputFormat happening.endDate}}" />
-    <label for="endTime" class="active">Heure de fin de l'événement</label>
-    <span class="helper">Optionnel</span>
-  </div>
+  <article class="fill">
+    <details>
+      <summary class="none">
+        <div class="row">
+          <div class="max">
+            <h6 class="small">Informations optionnelles</h6>
+          </div>
+          <i>arrow_drop_down</i>
+        </div>
+      </summary>
+      <div class="field textarea label border">
+        <textarea id="description" value="{{happening.description}}"></textarea>
+        <label for="description">Description de l'événement</label>
+      </div>
+      <div class="field label prefix border">
+        <i>today</i>
+        <input id="startDate" type="date" value="{{dateInputFormat happening.startDate}}" />
+        <label for="startDate" class="active">Date de début de l'événement</label>
+      </div>
+      <div class="field label prefix border">
+        <i>schedule</i>
+        <input id="startTime" type="time" value="{{timeInputFormat happening.startDate}}" />
+        <label for="startTime" class="active">Heure de début de l'événement</label>
+      </div>
+      <div class="field label prefix border">
+        <i>event</i>
+        <input id="endDate" type="date" value="{{dateInputFormat happening.endDate}}" />
+        <label for="endDate" class="active">Date de fin de l'événement</label>
+      </div>
+      <div class="field label prefix border">
+        <i>schedule</i>
+        <input id="endTime" type="time" value="{{timeInputFormat happening.endDate}}" />
+        <label for="endTime" class="active">Heure de fin de l'événement</label>
+      </div>
+    </details>
+  </article>
+  <div class="space"></div>
 </template>

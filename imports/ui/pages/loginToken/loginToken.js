@@ -38,7 +38,7 @@ Template.loginToken.events({
     Meteor.passwordlessLoginWithToken(email, token, (error) => {
       if (error) {
         Swal.fire({
-          title: 'Error!',
+          title: 'Bug!',
           text: error.message,
           icon: 'error',
         });

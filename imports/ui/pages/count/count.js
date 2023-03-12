@@ -55,7 +55,7 @@ Template.count.events({
     Meteor.call('participants.insert', { happeningId, uuid }, (error) => {
       if (error) {
         Swal.fire({
-          title: 'Error!',
+          title: 'Bug!',
           text: error.message,
           icon: 'error',
         });
@@ -75,7 +75,7 @@ Template.count.events({
     Meteor.call('participants.insert', { happeningId, uuid, isLike: true }, (error) => {
       if (error) {
         Swal.fire({
-          title: 'Error!',
+          title: 'Bug!',
           text: error.message,
           icon: 'error',
         });
@@ -105,7 +105,7 @@ Template.count.events({
         Meteor.call('participants.remove', participant._id, (error) => {
           if (error) {
             Swal.fire({
-              title: 'Error!',
+              title: 'Bug!',
               text: error.message,
               icon: 'error',
             });

@@ -8,7 +8,11 @@ import { Happenings } from '../happenings.js';
 Meteor.publish('happenings.top_ten', () =>
   Happenings.find(
     { isPublic: true },
-    { limit: 10, sort: { count: -1, likes: -1 }, fields: { ownerId: 0 } },
+    {
+      limit: 10,
+      fields: { _id: 1, shortId: 1, title: 1, count: 1, likes: 1, isPublic: 1 },
+      sort: { count: -1, likes: -1 },
+    },
   ),
 );
 
@@ -22,5 +26,5 @@ Meteor.publish('happenings.by_owner', () => {
 
 Meteor.publish('happenings.by_id', (_id) => {
   check(_id, String);
-  return Happenings.find({ _id }, { fields: { ownerId: 0 } });
+  return Happenings.find({ $or: [{ _id }, { shortId: _id }] });
 });

@@ -25,7 +25,7 @@ Template.login.events({
     const re = /\S+@\S+\.\S+/;
     if (!re.test(email)) {
       Swal.fire({
-        title: 'Error!',
+        title: 'Bug!',
         text: 'Merci de saisir une adresse valide',
         icon: 'error',
       });
@@ -35,7 +35,7 @@ Template.login.events({
     Accounts.requestLoginTokenForUser(options, (error) => {
       if (error) {
         Swal.fire({
-          title: 'Error!',
+          title: 'Bug!',
           text: error.message,
           icon: 'error',
         });

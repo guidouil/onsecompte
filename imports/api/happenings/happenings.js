@@ -19,6 +19,11 @@ const locationSchema = new SimpleSchema({
 });
 
 const happeningSchema = new SimpleSchema({
+  shortId: {
+    type: String,
+    index: true,
+    unique: true,
+  },
   ownerId: {
     type: String,
   },
