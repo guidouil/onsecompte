@@ -43,6 +43,14 @@ FlowRouter.route('/login', {
 
 FlowRouter.route('/login-token/:email/:token?', {
   name: 'loginToken',
+  meta: {
+    'og:title'() {
+      return 'On Se Compte';
+    },
+  },
+  title() {
+    return 'On Se Compte';
+  },
   action() {
     this.render('bodyLayout', 'loginToken');
   },
@@ -51,6 +59,14 @@ FlowRouter.route('/login-token/:email/:token?', {
 FlowRouter.route('/profile', {
   triggersEnter: [ensureSignedIn],
   name: 'profile',
+  meta: {
+    'og:title'() {
+      return 'On Se Compte - Profil';
+    },
+  },
+  title() {
+    return 'On Se Compte - Profil';
+  },
   action() {
     this.render('bodyLayout', 'profile');
   },
@@ -59,6 +75,14 @@ FlowRouter.route('/profile', {
 FlowRouter.route('/new', {
   triggersEnter: [ensureSignedIn],
   name: 'new',
+  meta: {
+    'og:title'() {
+      return 'On Se Compte - Nouveau compteur';
+    },
+  },
+  title() {
+    return 'On Se Compte - Nouveau compteur';
+  },
   action() {
     this.render('bodyLayout', 'new');
   },
@@ -91,6 +115,23 @@ FlowRouter.route('/happening/:slug', {
 FlowRouter.route('/edit/:_id', {
   triggersEnter: [ensureSignedIn],
   name: 'edit',
+  waitOn(params) {
+    return [Meteor.subscribe('happenings.by_id', params._id)];
+  },
+  data(params) {
+    return Happenings.findOne({ _id: params._id });
+  },
+  meta: {
+    'og:title'(params, query, data = {}) {
+      return data.title;
+    },
+  },
+  title(params, query, data = {}) {
+    if (data) {
+      return data.title;
+    }
+    return 'On Se Compte';
+  },
   action() {
     this.render('bodyLayout', 'edit');
   },
@@ -122,6 +163,14 @@ FlowRouter.route('/c/:slug', {
 
 FlowRouter.route('/search', {
   name: 'search',
+  meta: {
+    'og:title'() {
+      return 'On Se Compte - Recherche';
+    },
+  },
+  title() {
+    return 'On Se Compte - Recherche';
+  },
   action() {
     this.render('bodyLayout', 'search');
   },
@@ -129,6 +178,14 @@ FlowRouter.route('/search', {
 
 FlowRouter.route('/about', {
   name: 'about',
+  meta: {
+    'og:title'() {
+      return 'On Se Compte - À propos';
+    },
+  },
+  title() {
+    return 'On Se Compte - À propos';
+  },
   action() {
     this.render('bodyLayout', 'about');
   },
@@ -137,6 +194,14 @@ FlowRouter.route('/about', {
 // 404
 FlowRouter.route('*', {
   name: 'not-found',
+  meta: {
+    'og:title'() {
+      return 'On Se Compte - Page non trouvée';
+    },
+  },
+  title() {
+    return 'On Se Compte - Page non trouvée';
+  },
   action() {
     this.render('bodyLayout', 'notFound');
   },
