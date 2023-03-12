@@ -19,7 +19,7 @@ const locationSchema = new SimpleSchema({
 });
 
 const happeningSchema = new SimpleSchema({
-  shortId: {
+  slug: {
     type: String,
     index: true,
     unique: true,

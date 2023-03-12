@@ -16,8 +16,8 @@ Template.new.events({
   'submit #newHappeningForm'(event) {
     event.preventDefault();
     const title = $('#title').val();
-    const shortId = $('#shortId').val();
-    Meteor.call('happenings.isUniqueShortId', { shortId }, (error, isUnique) => {
+    const slug = $('#slug').val();
+    Meteor.call('happenings.isUniqueSlug', { slug }, (error, isUnique) => {
       if (error) {
         Swal.fire({
           title: 'Bug!',
@@ -32,7 +32,6 @@ Template.new.events({
           text: 'Ce nom court est déjà pris par un autre événement',
           icon: 'error',
         });
-        $('#shortId').focus();
         return false;
       }
       const description = $('#description').val();
@@ -49,7 +48,7 @@ Template.new.events({
       const isPublic = document.getElementById('isPublic').checked;
       const happening = {
         title,
-        shortId,
+        slug,
         description,
         startDate,
         startTime,
@@ -57,7 +56,7 @@ Template.new.events({
         endTime,
         isPublic,
       };
-      Meteor.call('happenings.insert', happening, (errorBis, _id) => {
+      Meteor.call('happenings.insert', happening, (errorBis) => {
         if (errorBis) {
           Swal.fire({
             title: 'Bug!',
@@ -65,7 +64,7 @@ Template.new.events({
             icon: 'error',
           });
         } else {
-          FlowRouter.go(`/happening/${_id}`);
+          FlowRouter.go(`/happening/${slug}`);
         }
       });
     });

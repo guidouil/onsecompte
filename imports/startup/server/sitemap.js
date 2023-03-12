@@ -78,6 +78,7 @@ WebApp.connectHandlers.use('/sitemap.xml', (req, res) => {
       sort: { updatedAt: -1, createdAt: -1 },
       fields: {
         _id: 1,
+        slug: 1,
         updatedAt: 1,
         createdAt: 1,
       },
@@ -85,12 +86,12 @@ WebApp.connectHandlers.use('/sitemap.xml', (req, res) => {
   );
   items.map((item) => {
     pushToSiteMap({
-      loc: Meteor.absoluteUrl(`/happening/${item._id}`),
+      loc: Meteor.absoluteUrl(`/happening/${item.slug}`),
       lastmod: item.updatedAt || item.createdAt,
       priority: 0.8,
     });
     pushToSiteMap({
-      loc: Meteor.absoluteUrl(`/c/${item._id}`),
+      loc: Meteor.absoluteUrl(`/c/${item.slug}`),
       lastmod: item.updatedAt || item.createdAt,
       priority: 0.8,
     });

@@ -12,8 +12,8 @@ import { Participants } from '/imports/api/participants/participants';
 
 Template.count.onCreated(() => {
   const instance = Template.instance();
-  const _id = FlowRouter.getParam('_id');
-  instance.subscribe('happenings.by_id', _id);
+  const slug = FlowRouter.getParam('slug');
+  instance.subscribe('happenings.by_slug', slug);
   // @ts-ignore
   const uuid = new DeviceUUID().get();
   instance.uuid = new ReactiveVar(uuid);
@@ -65,7 +65,7 @@ Template.count.events({
           'Vous êtes compté en tant que participant. Maintenant faites les autres se compter aussi.',
           'success',
         );
-        FlowRouter.go(`/happening/${happening.shortId}`);
+        FlowRouter.go(`/happening/${happening.slug}`);
       }
     });
   },
@@ -86,7 +86,7 @@ Template.count.events({
           'Vous êtes compté en tant que soutient. Maintenant faites les autres se compter aussi.',
           'success',
         );
-        FlowRouter.go(`/happening/${happening.shortId}`);
+        FlowRouter.go(`/happening/${happening.slug}`);
       }
     });
   },

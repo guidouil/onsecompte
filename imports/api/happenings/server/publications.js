@@ -10,7 +10,7 @@ Meteor.publish('happenings.top_ten', () =>
     { isPublic: true },
     {
       limit: 10,
-      fields: { _id: 1, shortId: 1, title: 1, count: 1, likes: 1, isPublic: 1 },
+      fields: { _id: 1, slug: 1, title: 1, count: 1, likes: 1, isPublic: 1 },
       sort: { count: -1, likes: -1 },
     },
   ),
@@ -26,5 +26,10 @@ Meteor.publish('happenings.by_owner', () => {
 
 Meteor.publish('happenings.by_id', (_id) => {
   check(_id, String);
-  return Happenings.find({ $or: [{ _id }, { shortId: _id }] });
+  return Happenings.find({ _id });
+});
+
+Meteor.publish('happenings.by_slug', (slug) => {
+  check(slug, String);
+  return Happenings.find({ slug });
 });

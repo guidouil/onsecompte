@@ -11,7 +11,7 @@ Template.happeningForm.events({
       .replace(/'/g, '')
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '');
-    const shortId = encodeURIComponent(title);
-    $('#shortId').val(shortId);
+    const slug = encodeURIComponent(title);
+    $('#slug').val(slug);
   },
 });

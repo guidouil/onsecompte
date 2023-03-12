@@ -26,8 +26,8 @@ Template.edit.events({
     event.preventDefault();
     const _id = FlowRouter.getParam('_id');
     const title = $('#title').val();
-    const shortId = $('#shortId').val();
-    Meteor.call('happenings.isUniqueShortId', { shortId, _id }, (error, isUnique) => {
+    const slug = $('#slug').val();
+    Meteor.call('happenings.isUniqueSlug', { slug, _id }, (error, isUnique) => {
       if (error) {
         Swal.fire({
           title: 'Bug!',
@@ -42,7 +42,6 @@ Template.edit.events({
           text: 'Ce nom court est déjà pris par un autre événement',
           icon: 'error',
         });
-        $('#shortId').focus();
         return false;
       }
       const description = $('#description').val();
@@ -60,7 +59,7 @@ Template.edit.events({
       const happening = {
         _id,
         title,
-        shortId,
+        slug,
         description,
         startDate,
         startTime,
@@ -76,7 +75,7 @@ Template.edit.events({
             icon: 'error',
           });
         } else {
-          FlowRouter.go(`/happening/${_id}`);
+          FlowRouter.go(`/happening/${slug}`);
         }
       });
     });

@@ -12,8 +12,8 @@ import { Happenings } from '/imports/api/happenings/happenings';
 
 Template.happening.onCreated(() => {
   const instance = Template.instance();
-  const _id = FlowRouter.getParam('_id');
-  instance.subscribe('happenings.by_id', _id);
+  const slug = FlowRouter.getParam('slug');
+  instance.subscribe('happenings.by_slug', slug);
   instance.happening = new ReactiveVar();
   instance.autorun(() => {
     const happening = Happenings.findOne();
@@ -34,8 +34,8 @@ Template.happening.helpers({
     return Template.instance().happening.get();
   },
   qrCode() {
-    const _id = FlowRouter.getParam('_id');
-    const url = Meteor.absoluteUrl(`/c/${_id}`);
+    const slug = FlowRouter.getParam('slug');
+    const url = Meteor.absoluteUrl(`/c/${slug}`);
     return jrQrcode.getQrBase64(url, {
       correctLevel: 0,
       background: '#6751a4',
@@ -47,7 +47,7 @@ Template.happening.helpers({
   },
   url() {
     const happening = Template.instance().happening.get();
-    return Meteor.absoluteUrl(`/c/${happening.shortId}`);
+    return Meteor.absoluteUrl(`/c/${happening.slug}`);
   },
   isOwner() {
     const ownerId = Meteor.userId();
@@ -61,8 +61,8 @@ Template.happening.helpers({
 
 Template.happening.events({
   'click #copyUrlButton'() {
-    const _id = FlowRouter.getParam('_id');
-    const url = Meteor.absoluteUrl(`/c/${_id}`);
+    const slug = FlowRouter.getParam('slug');
+    const url = Meteor.absoluteUrl(`/c/${slug}`);
     navigator.clipboard.writeText(url);
     $('#inputUrlIcon').html('done').addClass('green');
     Meteor.setTimeout(() => {

@@ -62,7 +62,7 @@ FlowRouter.route('/new', {
   },
 });
 
-FlowRouter.route('/happening/:_id', {
+FlowRouter.route('/happening/:slug', {
   name: 'happening',
   action() {
     this.render('bodyLayout', 'happening');
@@ -77,7 +77,7 @@ FlowRouter.route('/edit/:_id', {
   },
 });
 
-FlowRouter.route('/c/:_id', {
+FlowRouter.route('/c/:slug', {
   name: 'count',
   action() {
     this.render('bodyLayout', 'count');

@@ -5,17 +5,17 @@ import { check } from 'meteor/check';
 import { Happenings } from './happenings.js';
 
 Meteor.methods({
-  'happenings.insert'({ title, shortId, description, url, startDate, endDate, isPublic }) {
+  'happenings.insert'({ title, slug, description, url, startDate, endDate, isPublic }) {
     if (!Meteor.userId()) {
       throw new Meteor.Error(401, 'Vous devez être connecté.');
     }
     check(title, String);
-    check(shortId, String);
+    check(slug, String);
     check(isPublic, Boolean);
     const happening = {
       ownerId: Meteor.userId(),
       title,
-      shortId,
+      slug,
       isPublic,
       count: 0,
       likes: 0,
@@ -39,7 +39,7 @@ Meteor.methods({
     }
     return Happenings.insert(happening);
   },
-  'happenings.update'({ _id, title, shortId, description, url, startDate, endDate, isPublic }) {
+  'happenings.update'({ _id, title, slug, description, url, startDate, endDate, isPublic }) {
     const ownerId = Meteor.userId();
     if (!ownerId) {
       throw new Meteor.Error(401, 'Vous devez être connecté.');
@@ -49,11 +49,11 @@ Meteor.methods({
       throw new Meteor.Error(403, 'Vous devez être le propriétaire.');
     }
     check(title, String);
-    check(shortId, String);
+    check(slug, String);
     check(isPublic, Boolean);
     const happening = {
       title,
-      shortId,
+      slug,
       isPublic,
       updatedAt: new Date(),
     };
@@ -86,12 +86,12 @@ Meteor.methods({
     }
     return Happenings.remove({ _id });
   },
-  'happenings.isUniqueShortId'({ shortId, _id }) {
-    check(shortId, String);
+  'happenings.isUniqueSlug'({ slug, _id }) {
+    check(slug, String);
     if (_id !== undefined) {
       check(_id, String);
-      return Happenings.find({ _id: { $ne: _id }, shortId }).count() === 0;
+      return Happenings.find({ _id: { $ne: _id }, slug }).count() === 0;
     }
-    return Happenings.find({ shortId }).count() === 0;
+    return Happenings.find({ slug }).count() === 0;
   },
 });
