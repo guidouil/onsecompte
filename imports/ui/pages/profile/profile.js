@@ -15,7 +15,7 @@ Template.profile.onCreated(() => {
 Template.profile.helpers({
   happenings() {
     const ownerId = Meteor.userId();
-    return Happenings.find({ ownerId }).fetch();
+    return Happenings.find({ ownerId }, { sort: { count: -1, likes: -1 } }).fetch();
   },
 });
 

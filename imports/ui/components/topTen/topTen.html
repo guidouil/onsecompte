@@ -1,28 +1,39 @@
 <template name="topTen">
-  {{#if Template.subscriptionsReady}} {{#if happenings}}
-  <h3 class="small">Top 10 des compteurs public</h3>
+  {{#if Template.subscriptionsReady}}
+  <!--  -->
+  {{#if happenings}}
+  <h2 class="small center-align">Participez aux compteurs du moment 👇</h2>
   <div class="grid">
     {{#each happenings}}
     <div class="s12 m12 l6">
-      <a class="row wave fill" href="/c/{{slug}}">
+      <a class="row wave round primary" href="/c/{{slug}}">
         <i>group</i>
         <div class="max">{{title}}</div>
-        <span class="badge round none primary">{{formatNumber (add count likes)}}</span>
+        <span class="badge round none black white-text">{{formatNumber (add count likes)}}</span>
       </a>
     </div>
     {{/each}}
   </div>
+  <div class="space"></div>
+  <h3 class="small center-align">ou</h3>
+  <div class="space"></div>
+  <a href="/new" class="button responsive upper border round primary-text large">
+    <i>add</i>
+    Créez un compteur
+  </a>
   {{else}}
   <div class="fill medium-height middle-align center-align">
     <div class="center-align">
-      <i class="extra">group</i>
-      <h5>Pas de compteur pour l'instant</h5>
-      <p>Cliquez sur le bouton pour en créer un</p>
+      <i class="extra">sentiment_dissatisfied</i>
+      <h5>Aucun compteur pour le moment.</h5>
+      <p>Cliquez sur le bouton pour en créer un.</p>
       <div class="space"></div>
       <nav class="center-align">
         <a class="round button" href="/new">Créer un compteur</a>
       </nav>
     </div>
   </div>
-  {{/if}} {{else}} {{> loading }} {{/if}}
+  {{/if}}
+  <div class="space"></div>
+  {{else}} {{> loading }} {{/if}}
 </template>

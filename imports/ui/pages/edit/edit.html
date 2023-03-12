@@ -1,11 +1,15 @@
 <template name="edit">
   {{> header title="Édition"}}
   <main class="responsive">
+    <div class="space"></div>
     <form id="editHappeningForm">
       {{> happeningForm happening=happening}}
+      <div class="space"></div>
       <button type="submit" class="responsive extra upper">Enregistrer le compteur</button>
     </form>
     <div class="large-divider"></div>
-    <button class="responsive red" id="deleteHappeningBtn">Supprimer le compteur</button>
+    <button class="responsive border red-text" id="deleteHappeningBtn">
+      Supprimer le compteur
+    </button>
   </main>
 </template>

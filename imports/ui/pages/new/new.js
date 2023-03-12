@@ -10,6 +10,7 @@ import '../../components/happeningForm/happeningForm.js';
 
 Template.new.onRendered(() => {
   window.scrollTo(0, 0);
+  $('#isPublic').trigger('click');
 });
 
 Template.new.events({

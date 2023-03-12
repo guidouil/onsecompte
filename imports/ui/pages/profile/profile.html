@@ -8,16 +8,16 @@
     <div class="grid">
       {{#each happenings}}
       <div class="s12 m12 l6">
-        <a class="row wave fill" href="/happening/{{slug}}">
+        <a class="row wave round primary" href="/happening/{{slug}}">
           <i>group</i>
           <div class="max">{{title}}</div>
-          <span class="badge round none primary">{{formatNumber count}}</span>
+          <span class="badge round none black white-text">{{formatNumber (add likes count)}}</span>
         </a>
       </div>
       {{/each}}
     </div>
     <div class="large-space"></div>
-    <a href="/new" class="button responsive">Créer un nouveau compteur</a>
+    <a href="/new" class="button round border responsive"><i>add</i>Créer un nouveau compteur</a>
     {{else}}
     <div class="fill medium-height middle-align center-align">
       <div class="center-align">
@@ -32,7 +32,7 @@
     </div>
     {{/if}}
     <div class="large-divider"></div>
-    <button class="responsive small orange" id="logOutBtn">
+    <button class="responsive small border round orange-text" id="logOutBtn">
       <i>logout</i>
       Se deconnecter
     </button>
