@@ -16,12 +16,12 @@ Template.count.onCreated(() => {
   instance.subscribe('happenings.by_id', _id);
   // @ts-ignore
   const uuid = new DeviceUUID().get();
-  instance.subscribe('participants.by_hnuuid', _id, uuid);
   instance.uuid = new ReactiveVar(uuid);
   instance.happening = new ReactiveVar();
   instance.autorun(() => {
-    const happening = Happenings.findOne({ _id });
+    const happening = Happenings.findOne();
     if (happening) {
+      instance.subscribe('participants.by_hnuuid', happening._id, uuid);
       instance.happening.set(happening);
       document.title = happening.title;
     }
@@ -42,15 +42,15 @@ Template.count.helpers({
     return Template.instance().happening.get();
   },
   participant() {
-    const happeningId = FlowRouter.getParam('_id');
     const uuid = Template.instance().uuid.get();
-    return Participants.findOne({ happeningId, uuid });
+    return Participants.findOne({ uuid });
   },
 });
 
 Template.count.events({
   'click #countBtn'(event, templateInstance) {
-    const happeningId = FlowRouter.getParam('_id');
+    const happening = Template.instance().happening.get();
+    const happeningId = happening._id;
     const uuid = templateInstance.uuid.get();
     Meteor.call('participants.insert', { happeningId, uuid }, (error) => {
       if (error) {
@@ -65,12 +65,13 @@ Template.count.events({
           'Vous êtes compté en tant que participant. Maintenant faites les autres se compter aussi.',
           'success',
         );
-        FlowRouter.go(`/happening/${happeningId}`);
+        FlowRouter.go(`/happening/${happening.shortId}`);
       }
     });
   },
   'click #likeBtn'(event, templateInstance) {
-    const happeningId = FlowRouter.getParam('_id');
+    const happening = Template.instance().happening.get();
+    const happeningId = happening._id;
     const uuid = templateInstance.uuid.get();
     Meteor.call('participants.insert', { happeningId, uuid, isLike: true }, (error) => {
       if (error) {
@@ -85,12 +86,13 @@ Template.count.events({
           'Vous êtes compté en tant que soutient. Maintenant faites les autres se compter aussi.',
           'success',
         );
-        FlowRouter.go(`/happening/${happeningId}`);
+        FlowRouter.go(`/happening/${happening.shortId}`);
       }
     });
   },
   'click #removeParticipantBtn'() {
-    const happeningId = FlowRouter.getParam('_id');
+    const happening = Template.instance().happening.get();
+    const happeningId = happening._id;
     const uuid = Template.instance().uuid.get();
     const participant = Participants.findOne({ happeningId, uuid });
     Swal.fire({

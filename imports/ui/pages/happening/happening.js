@@ -16,7 +16,7 @@ Template.happening.onCreated(() => {
   instance.subscribe('happenings.by_id', _id);
   instance.happening = new ReactiveVar();
   instance.autorun(() => {
-    const happening = Happenings.findOne({ _id });
+    const happening = Happenings.findOne();
     if (happening) {
       instance.happening.set(happening);
       document.title = happening.title;
