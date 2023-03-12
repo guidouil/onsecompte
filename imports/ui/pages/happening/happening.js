@@ -3,6 +3,7 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 import jrQrcode from 'jr-qrcode';
+import Swal from 'sweetalert2';
 
 import './happening.html';
 import '../../components/header/header.js';
@@ -62,6 +63,7 @@ Template.happening.events({
     const url = Meteor.absoluteUrl(`/c/${slug}`);
     navigator.clipboard.writeText(url);
     $('#inputUrlIcon').html('done').addClass('green');
+    Swal.fire('Copié', 'Vous pouvez coller ce lien où vous voulez.', 'success');
     Meteor.setTimeout(() => {
       $('#inputUrlIcon').html('content_copy').removeClass('green');
     }, 1000);

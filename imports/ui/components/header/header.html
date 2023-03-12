@@ -2,9 +2,10 @@
   <header class="fill">
     <nav>
       {{#if isHome}}
-      <button class="circle transparent" id="showMenuBtn">
-        <i>menu</i>
-      </button>
+      <!--  -->
+      <a class="circle transparent" href="{{#if currentUser}}/profile{{else}}/login{{/if}}">
+        <i>person</i>
+      </a>
       {{else}} {{#unless noReturn}}
       <button class="circle transparent" id="goBackBtn">
         <i>arrow_backward</i>

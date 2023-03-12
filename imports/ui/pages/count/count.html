@@ -20,12 +20,12 @@
     </article>
     <div class="space"></div>
     {{#unless participant}}
-    <button class="primary responsive extra large-elevate upper" id="countBtn">
+    <button class="primary round responsive extra large-elevate upper" id="countBtn">
       <i>group</i>
       <span>Je participe, comptez-moi.</span>
     </button>
     <h5 class="center-align">ou</h5>
-    <button class="secondary responsive extra large-elevate upper" id="likeBtn">
+    <button class="secondary round responsive extra large-elevate upper" id="likeBtn">
       <i>favorite</i>
       <span>Je soutiens, comptez-moi.</span>
     </button>
@@ -36,7 +36,10 @@
       {{toLocaleDate participant.createdAt}}
     </h3>
     <div class="space"></div>
-    <a href="/happening/{{happening.slug}}" class="primary button responsive upper extra">
+    <a
+      href="/happening/{{happening.slug}}"
+      class="primary round button responsive extra large-elevate upper"
+    >
       Voir et partager le compteur
     </a>
     {{/unless}}

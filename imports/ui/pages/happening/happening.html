@@ -4,7 +4,7 @@
     {{#if Template.subscriptionsReady}}
     <article class="large-elevate">
       {{#if isOwner}}
-      <a class="absolute right border circle button" href="/edit/{{happening._id}}">
+      <a class="absolute right border circle blue-text button" href="/edit/{{happening._id}}">
         {{#if happening.isPublic}}
         <i>public</i>
         {{else}}
@@ -50,7 +50,7 @@
       👇 Vous pouvez aussi partager le lien ci-dessous sur vos réseaux et groupes. C'est le même que
       dans le QR code.
     </h4>
-    <button class="responsive extra" id="copyUrlButton">Copier le lien à partager</button>
+    <button class="responsive round extra" id="copyUrlButton">Copier le lien à partager</button>
     <div class="field label suffix border">
       <input type="text" value="{{url}}" readonly />
       <label>Lien à partager pour se compter</label>
@@ -59,7 +59,7 @@
     <h3 class="small center-align">Merci 🙏</h3>
     <div class="space"></div>
     <div class="medium-divider"></div>
-    <a class="button border responsive" href="{{url}}"> Ouvrir la page de participation </a>
+    <a class="button border round responsive" href="{{url}}"> Ouvrir la page de participation </a>
     <div class="space"></div>
     {{else}} {{> loading }} {{/if}}
   </main>
