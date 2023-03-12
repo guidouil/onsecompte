@@ -1,18 +1,19 @@
 <template name="loginToken">
   {{> header title="On Se Connecte"}}
   <main class="responsive">
+    <div class="space"></div>
     <h2 class="small">S'identifier</h2>
     <p class="large-text">
       Veuillez saisir le code que vous avez reçu par email. Si vous ne trouvez pas le message, merci
       de vérifier le dossier SPAM. Code envoyé à l'adresse
-      <span class="bold underline">{{email}}</span>
+      <span class="bold underline">{{email}}</span>.
     </p>
     <form id="loginWithToken">
       <div class="field label border extra" id="tokenField">
         <input type="text" id="token" value="{{token}}" required />
         <label for="token">Code reçu</label>
       </div>
-      <button type="submit" class="responsive extra upper">Se connecter</button>
+      <button type="submit" class="responsive round extra upper">Se connecter</button>
     </form>
   </main>
 </template>
