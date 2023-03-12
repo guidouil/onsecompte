@@ -12,8 +12,6 @@ import { Happenings } from '/imports/api/happenings/happenings';
 
 Template.happening.onCreated(() => {
   const instance = Template.instance();
-  const slug = FlowRouter.getParam('slug');
-  instance.subscribe('happenings.by_slug', slug);
   instance.happening = new ReactiveVar();
   instance.isOwner = new ReactiveVar();
   instance.autorun(() => {

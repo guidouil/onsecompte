@@ -2,6 +2,8 @@ import { Meteor } from 'meteor/meteor';
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 import { FlowRouterMeta, FlowRouterTitle } from 'meteor/ostrio:flow-router-meta';
 
+import { Happenings } from '/imports/api/happenings/happenings.js';
+
 // Import needed templates
 import '../../ui/layouts/body/body.js';
 
@@ -64,6 +66,23 @@ FlowRouter.route('/new', {
 
 FlowRouter.route('/happening/:slug', {
   name: 'happening',
+  waitOn(params) {
+    return [Meteor.subscribe('happenings.by_slug', params.slug)];
+  },
+  data(params) {
+    return Happenings.findOne({ slug: params.slug });
+  },
+  meta: {
+    'og:title'(params, query, data = {}) {
+      return data.title;
+    },
+  },
+  title(params, query, data = {}) {
+    if (data) {
+      return data.title;
+    }
+    return 'On Se Compte';
+  },
   action() {
     this.render('bodyLayout', 'happening');
   },
@@ -79,6 +98,23 @@ FlowRouter.route('/edit/:_id', {
 
 FlowRouter.route('/c/:slug', {
   name: 'count',
+  waitOn(params) {
+    return [Meteor.subscribe('happenings.by_slug', params.slug)];
+  },
+  data(params) {
+    return Happenings.findOne({ slug: params.slug });
+  },
+  meta: {
+    'og:title'(params, query, data = {}) {
+      return data.title;
+    },
+  },
+  title(params, query, data = {}) {
+    if (data) {
+      return data.title;
+    }
+    return 'On Se Compte';
+  },
   action() {
     this.render('bodyLayout', 'count');
   },

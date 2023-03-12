@@ -12,8 +12,6 @@ import { Participants } from '/imports/api/participants/participants';
 
 Template.count.onCreated(() => {
   const instance = Template.instance();
-  const slug = FlowRouter.getParam('slug');
-  instance.subscribe('happenings.by_slug', slug);
   // @ts-ignore
   const uuid = new DeviceUUID().get();
   instance.uuid = new ReactiveVar(uuid);

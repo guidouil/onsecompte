@@ -35,22 +35,22 @@
       en temps que {{#if participant.isLike}}soutien{{else}}participant{{/if}}<br />
       {{toLocaleDate participant.createdAt}}
     </h3>
+    <div class="space"></div>
     <a href="/happening/{{happening.slug}}" class="primary button responsive upper extra">
       Voir et partager le compteur
     </a>
     {{/unless}}
-    <div class="medium-divider"></div>
+    <div class="large-divider"></div>
     <p>
       Aucune donnée personnelle n'est enregitrée. Le site créé un identifiant unique et anonyme pour
       garantir l'unicité du compte de chaque participant.
     </p>
-    <p class="small">
+    <p class="center-align">
       Votre identifiant unique :<br />
-      {{uuid}}
+      <code> {{uuid}} </code>
     </p>
     {{#if participant}}
-    <div class="space"></div>
-    <div class="medium-divider"></div>
+    <div class="large-divider"></div>
     <button class="responsive small border red-text" id="removeParticipantBtn">
       Supprimmer mon comptage
     </button>
