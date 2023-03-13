@@ -3,11 +3,14 @@
     <nav>
       {{#if isHome}}
       <!--  -->
-      <a class="circle transparent" href="{{#if currentUser}}/profile{{else}}/login{{/if}}">
+      <a
+        class="button circle transparent elevate"
+        href="{{#if currentUser}}/profile{{else}}/login{{/if}}"
+      >
         <i>person</i>
       </a>
       {{else}} {{#unless noReturn}}
-      <button class="circle transparent" id="goBackBtn">
+      <button class="circle transparent elevate" id="goBackBtn">
         <i>arrow_backward</i>
       </button>
       {{else}}
@@ -16,7 +19,7 @@
       <h6 class="max center-align" id="logo">
         {{#if title}} {{title}} {{else}} On Se Compte {{/if}}
       </h6>
-      <button class="circle transparent" id="darkModeBtn">
+      <button class="circle transparent elevate" id="darkModeBtn">
         <i>dark_mode</i>
       </button>
     </nav>
