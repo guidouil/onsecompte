@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 
 Accounts.emailTemplates.siteName = 'On Se Compte';
-Accounts.emailTemplates.from = 'On Se Compte - Ne pas répondre <personne@onsecompte.fr>';
+Accounts.emailTemplates.from = 'On Se Compte <onsecompte@gmail.com>';
 
 Accounts.emailTemplates.sendLoginToken = {
   subject() {
