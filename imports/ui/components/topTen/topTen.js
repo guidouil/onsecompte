@@ -1,6 +1,7 @@
 import { Template } from 'meteor/templating';
 
 import './topTen.html';
+import '../../components/loading/loading.js';
 
 import { Happenings } from '/imports/api/happenings/happenings';
 

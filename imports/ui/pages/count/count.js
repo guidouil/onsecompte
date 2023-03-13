@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 
 import './count.html';
 import '../../components/header/header.js';
+import '../../components/loading/loading.js';
 
 import { Happenings } from '/imports/api/happenings/happenings';
 import { Participants } from '/imports/api/participants/participants';
