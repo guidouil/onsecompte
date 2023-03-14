@@ -61,7 +61,7 @@ Template.count.events({
       } else {
         Swal.fire(
           'Merci',
-          'Vous êtes compté en tant que participant. Maintenant faites les autres se compter aussi.',
+          'Vous êtes compté en tant que participant. Maintenant faites passer.',
           'success',
         );
         FlowRouter.go(`/compteur/${happening.slug}`);
@@ -82,7 +82,7 @@ Template.count.events({
       } else {
         Swal.fire(
           'Merci!',
-          'Vous êtes compté en tant que soutient. Maintenant faites les autres se compter aussi.',
+          'Vous êtes compté en tant que soutien. Maintenant faites passer.',
           'success',
         );
         FlowRouter.go(`/compteur/${happening.slug}`);

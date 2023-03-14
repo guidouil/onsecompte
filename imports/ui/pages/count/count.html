@@ -45,9 +45,9 @@
     </a>
     {{/unless}}
     <div class="large-divider"></div>
-    <p>
-      Aucune donnée personnelle n'est enregitrée. Le site crée un identifiant unique et anonyme pour
-      garantir l'unicité du compte de chaque participant.
+    <p class="bold">
+      Aucune donnée personnelle n'est enregitrée. Le site crée un identifiant unique et anonyme par
+      participant pour garantir l'unicité du compte de chaque participant.
     </p>
     <p class="center-align">
       Votre identifiant unique :<br />
@@ -55,8 +55,8 @@
     </p>
     {{#if participant}}
     <div class="large-divider"></div>
-    <button class="responsive round small border red-text" id="removeParticipantBtn">
-      Supprimmer mon comptage
+    <button class="responsive round small border upper red-text" id="removeParticipantBtn">
+      Supprimer mon comptage
     </button>
     <div class="space"></div>
     {{/if}} {{else}} {{> loading }} {{/if}}
