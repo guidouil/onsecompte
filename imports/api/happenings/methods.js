@@ -45,7 +45,8 @@ Meteor.methods({
       throw new Meteor.Error(401, 'Vous devez être connecté.');
     }
     check(_id, String);
-    if (Happenings.find({ _id, ownerId }).count() === 0) {
+    const currentHappening = Happenings.findOne({ _id, ownerId });
+    if (!currentHappening) {
       throw new Meteor.Error(403, 'Vous devez être le propriétaire.');
     }
     check(title, String);
@@ -53,10 +54,12 @@ Meteor.methods({
     check(isPublic, Boolean);
     const happening = {
       title,
-      slug,
       isPublic,
       updatedAt: new Date(),
     };
+    if (!currentHappening.count && !currentHappening.likes) {
+      happening.slug = slug;
+    }
     if (description) {
       check(description, String);
       happening.description = description;

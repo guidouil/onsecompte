@@ -25,6 +25,7 @@ Template.edit.events({
   'submit #editHappeningForm'(event) {
     event.preventDefault();
     const _id = FlowRouter.getParam('_id');
+    const currentHappening = Happenings.findOne({ _id });
     const title = $('#title').val();
     const slug = $('#slug').val();
     Meteor.call('happenings.isUniqueSlug', { slug, _id }, (error, isUnique) => {
@@ -75,7 +76,7 @@ Template.edit.events({
             icon: 'error',
           });
         } else {
-          FlowRouter.go(`/compteur/${slug}`);
+          FlowRouter.go(`/compteur/${currentHappening.slug}`);
         }
       });
     });
