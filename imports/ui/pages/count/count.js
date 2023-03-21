@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 import './count.html';
 import '../../components/header/header.js';
 import '../../components/loading/loading.js';
+import '../../components/theCount/theCount.js';
 
 import { Happenings } from '/imports/api/happenings/happenings';
 import { Participants } from '/imports/api/participants/participants';
@@ -17,12 +18,16 @@ Template.count.onCreated(() => {
   const uuid = new DeviceUUID().get();
   instance.uuid = new ReactiveVar(uuid);
   instance.happening = new ReactiveVar();
+  instance.isOwner = new ReactiveVar();
   instance.autorun(() => {
     const happening = Happenings.findOne();
     if (happening) {
       instance.subscribe('participants.by_hnuuid', happening._id, uuid);
       instance.happening.set(happening);
       document.title = happening.title;
+      Meteor.call('happenings.isOwner', happening._id, (error, isOwner) => {
+        instance.isOwner.set(isOwner);
+      });
     }
   });
 });
@@ -43,6 +48,9 @@ Template.count.helpers({
   participant() {
     const uuid = Template.instance().uuid.get();
     return Participants.findOne({ uuid });
+  },
+  isOwner() {
+    return Template.instance().isOwner.get();
   },
 });
 

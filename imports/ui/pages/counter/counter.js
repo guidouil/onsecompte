@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import './counter.html';
 import '../../components/header/header.js';
 import '../../components/loading/loading.js';
+import '../../components/theCount/theCount.js';
 
 import { Happenings } from '/imports/api/happenings/happenings';
 

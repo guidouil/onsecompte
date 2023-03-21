@@ -2,51 +2,13 @@
   {{> header noReturn=true}}
   <main class="responsive">
     {{#if Template.subscriptionsReady}}
-    <article class="large-elevate">
-      {{#if isOwner}}
-      <a class="absolute right border circle blue-text button" href="/edit/{{happening._id}}">
-        {{#if happening.isPublic}}
-        <i>public</i>
-        {{else}}
-        <i>edit</i>
-        {{/if}}
-      </a>
-      {{/if}}
-      <h2 class="small">{{happening.title}}</h2>
-      <h1 class="primary small right-align">
-        <i class="left absolute padding extra">group</i>
-        <span class="padding">{{formatNumber happening.count}}</span>
-        <div class="tooltip">Participants</div>
-      </h1>
-      <h2 class="secondary small right-align">
-        <i class="left absolute padding extra">favorite</i>
-        <span class="padding">{{formatNumber happening.likes}}</span>
-        <div class="tooltip">Soutiens</div>
-      </h2>
-      <p class="center-align">Participants + Soutiens = {{formatNumber happening.total}}</p>
-      {{#if happening.description}}
-      <p>{{happening.description}}</p>
-      {{/if}} {{#if happening.startDate}}
-      <h5 class="small">Du: {{toLocaleDate happening.startDate}}</h5>
-      {{/if}} {{#if happening.endDate}}
-      <h5 class="small">Au: {{toLocaleDate happening.endDate}}</h5>
-      {{/if}}
-    </article>
+    <!--  -->
+    {{> theCount happening=happening isOwner=isOwner}}
     <div class="space"></div>
-    <h3 class="small center-align">Faites passer le mot, tout le monde doit se compter ⬇️</h3>
-    <img
-      alt="QR Code {{happening.title}}"
-      src="{{qrCode}}"
-      width="374"
-      height="374"
-      class="square center large-elevate"
-    />
-    <h4 class="small">
-      👆 Faites flasher ce QR code aux participants autour de vous pour qu'ils se comptent aussi.
-    </h4>
-    <h4 class="small">
-      👇 Vous pouvez également partager le lien ci-dessous sur vos réseaux et groupes. C'est le même
-      que dans le QR code.
+    <h3 class="small center-align">Faites passer le mot, tout le monde doit se compter !</h3>
+
+    <h4 class="small center-align">
+      Partagez le lien ci-dessous sur vos réseaux et groupes, pour se compter anonymement.
     </h4>
     <button class="responsive round extra upper large-elevate" id="copyUrlButton">
       Copier le lien à partager
@@ -56,7 +18,20 @@
       <label>Lien à partager pour se compter</label>
       <i id="inputUrlIcon">content_copy</i>
     </div>
+    <h4 class="small center-align">
+      Vous pouvez aussi montrer ce QR code aux participants autour de vous, il mène sur la page pour
+      se compter anonymement.
+    </h4>
+    <img
+      alt="QR Code {{happening.title}}"
+      src="{{qrCode}}"
+      width="374"
+      height="374"
+      class="square center large-elevate"
+    />
+
     <h3 class="small center-align">Merci 🙏</h3>
+    <h4 class="small center-align upper">tout le monde compte</h4>
     <div class="large-space"></div>
     <a class="button border round responsive elevate" href="{{url}}">
       <i>arrow_back</i>

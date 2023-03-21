@@ -2,20 +2,8 @@
   {{> header noReturn=true}}
   <main class="responsive">
     {{#if Template.subscriptionsReady}}
-    <article class="large-elevate">
-      <h2 class="small">{{happening.title}}</h2>
-      <h1 class="primary small right-align">
-        <i class="left absolute padding extra">group</i>
-        <span class="padding">{{formatNumber happening.count}}</span>
-        <div class="tooltip">Participants</div>
-      </h1>
-      <h2 class="secondary small right-align">
-        <i class="left absolute padding extra">favorite</i>
-        <span class="padding">{{formatNumber happening.likes}}</span>
-        <div class="tooltip">Soutiens</div>
-      </h2>
-      <p class="center-align">Participants + Soutiens = {{formatNumber happening.total}}</p>
-    </article>
+    <!--  -->
+    {{> theCount happening=happening isOwner=isOwner}}
     <div class="space"></div>
     {{#unless participant}}
     <div class="space"></div>

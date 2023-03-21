@@ -1,0 +1,32 @@
+<template name="theCount">
+  <article class="large-elevate">
+    {{#if isOwner}}
+    <a class="absolute right border circle blue-text button" href="/edit/{{happening._id}}">
+      {{#if happening.isPublic}}
+      <i>public</i>
+      {{else}}
+      <i>edit</i>
+      {{/if}}
+    </a>
+    {{/if}}
+    <h2 class="small">{{happening.title}}</h2>
+    <h1 class="primary small right-align">
+      <i class="left absolute padding extra">group</i>
+      <span class="padding">{{formatNumber happening.count}}</span>
+      <div class="tooltip">Participants</div>
+    </h1>
+    <h2 class="secondary small right-align">
+      <i class="left absolute padding extra">favorite</i>
+      <span class="padding">{{formatNumber happening.likes}}</span>
+      <div class="tooltip">Soutiens</div>
+    </h2>
+    <p class="center-align">Participants + Soutiens = {{formatNumber happening.total}}</p>
+    {{#if happening.description}}
+    <p>{{happening.description}}</p>
+    {{/if}} {{#if happening.startDate}}
+    <h5 class="small">Du: {{toLocaleDate happening.startDate}}</h5>
+    {{/if}} {{#if happening.endDate}}
+    <h5 class="small">Au: {{toLocaleDate happening.endDate}}</h5>
+    {{/if}}
+  </article>
+</template>
