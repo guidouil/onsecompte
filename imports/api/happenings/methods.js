@@ -108,4 +108,15 @@ Meteor.methods({
     }
     return true;
   },
+  'happenings.calculateTotals'() {
+    const happenings = Happenings.find({
+      $or: [{ count: { $exists: true } }, { likes: { $exists: true } }],
+    }).fetch();
+    if (happenings && happenings.length) {
+      happenings.forEach(({ _id, count = 0, likes = 0 }) => {
+        const total = count + likes;
+        Happenings.update({ _id }, { $set: { total } });
+      });
+    }
+  },
 });

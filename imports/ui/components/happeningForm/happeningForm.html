@@ -3,13 +3,19 @@
     <input id="title" type="text" value="{{happening.title}}" required />
     <label for="title">Titre de l'événement</label>
   </div>
+
   <div class="field label border small active">
+    {{#unless or happening.count happening.likes}}
     <input id="slug" type="text" value="{{happening.slug}}" required />
+    {{else}}
+    <input id="slug" type="text" value="{{happening.slug}}" readonly />
+    {{/unless}}
     <span class="helper">
       Nom court pour l'adresse URL. Ne doit pas contenir d'espace ou de caractère spécial. Doit être
-      unique.
+      unique. Ne peux plus être modifié une dès le premier participant.
     </span>
   </div>
+
   <div class="space"></div>
   <div class="field middle-align">
     <nav>

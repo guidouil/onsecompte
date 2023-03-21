@@ -14,9 +14,7 @@
         <span class="padding">{{formatNumber happening.likes}}</span>
         <div class="tooltip">Soutiens</div>
       </h2>
-      <p class="center-align">
-        Participants + Soutiens = {{formatNumber (add happening.count happening.likes)}}
-      </p>
+      <p class="center-align">Participants + Soutiens = {{formatNumber happening.total}}</p>
     </article>
     <div class="space"></div>
     {{#unless participant}}

@@ -57,6 +57,10 @@ const happeningSchema = new SimpleSchema({
     type: Number,
     optional: true,
   },
+  total: {
+    type: Number,
+    optional: true,
+  },
   locations: {
     type: Array,
     optional: true,

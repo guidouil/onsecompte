@@ -12,6 +12,6 @@ Template.topTen.onCreated(() => {
 
 Template.topTen.helpers({
   happenings() {
-    return Happenings.find({ isPublic: true }, { sort: { count: -1, likes: -1 } }).fetch();
+    return Happenings.find({ isPublic: true }, { sort: { total: -1 } }).fetch();
   },
 });
