@@ -2,12 +2,15 @@
   {{> header}}
   <main class="responsive">
     <h2 class="small">Nouveau compteur pour un événement</h2>
-    <h4 class="small">Seul le titre est obligatoire.</h4>
+    <h4 class="small">
+      Seul le titre est obligatoire. Le nom court est généré automatiquement et est modifiable, il
+      sera utilisé dans l'adresse du compteur.
+    </h4>
     <div class="space"></div>
     <form id="newHappeningForm">
       {{> happeningForm}}
       <div class="space"></div>
-      <button type="submit" class="responsive round extra upper">
+      <button type="submit" class="responsive round extra upper elevate">
         Créer le compteur pour l'événement
       </button>
     </form>

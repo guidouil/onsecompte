@@ -16,7 +16,6 @@ import '../../ui/pages/counter/counter.js';
 import '../../ui/pages/edit/edit.js';
 import '../../ui/pages/count/count.js';
 import '../../ui/pages/search/search.js';
-import '../../ui/pages/about/about.js';
 import '../../ui/pages/not-found/not-found.js';
 
 const ensureSignedIn = () => {
@@ -173,21 +172,6 @@ FlowRouter.route('/search', {
   },
   action() {
     this.render('bodyLayout', 'search');
-  },
-});
-
-FlowRouter.route('/about', {
-  name: 'about',
-  meta: {
-    'og:title'() {
-      return 'On Se Compte - À propos';
-    },
-  },
-  title() {
-    return 'On Se Compte - À propos';
-  },
-  action() {
-    this.render('bodyLayout', 'about');
   },
 });
 

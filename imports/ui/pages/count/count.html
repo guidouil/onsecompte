@@ -7,26 +7,27 @@
     <div class="space"></div>
     {{#unless participant}}
     <div class="space"></div>
-    <button class="primary round responsive extra large-elevate upper" id="countBtn">
+    <button class="primary round responsive extra elevate upper" id="countBtn">
       <i>group</i>
       <span>Je participe, comptez-moi.</span>
     </button>
     <h6 class="center-align upper">ou</h6>
     <div class="space"></div>
-    <button class="secondary round responsive extra large-elevate upper" id="likeBtn">
+    <button class="secondary round responsive extra elevate upper" id="likeBtn">
       <i>favorite</i>
       <span>Je soutiens, comptez-moi.</span>
     </button>
     {{else}}
-    <h3 class="small center-align">
-      Vous êtes déjà compté<br />
-      en temps que {{#if participant.isLike}}soutien{{else}}participant{{/if}}<br />
-      {{toLocaleDate participant.createdAt}}
-    </h3>
+    <h3 class="small center-align">Vous êtes déjà compté en temps que</h3>
+    <h2 class="small center-align upper">
+      {{#if participant.isLike}}soutien{{else}}participant{{/if}}
+    </h2>
+
+    <h5 class="small center-align">Le {{toLocaleDate participant.createdAt}}</h5>
     <div class="space"></div>
     <a
       href="/compteur/{{happening.slug}}"
-      class="primary round button responsive extra large-elevate upper"
+      class="primary round button responsive extra elevate upper"
     >
       Voir et partager le compteur
     </a>
