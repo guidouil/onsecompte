@@ -18,11 +18,10 @@
       <span>Je soutiens, comptez-moi.</span>
     </button>
     {{else}}
-    <h3 class="small center-align">Vous êtes déjà compté en temps que</h3>
+    <h3 class="small center-align">Vous êtes déjà compté en tant que</h3>
     <h2 class="small center-align upper">
       {{#if participant.isLike}}soutien{{else}}participant{{/if}}
     </h2>
-
     <h5 class="small center-align">Le {{toLocaleDate participant.createdAt}}</h5>
     <div class="space"></div>
     <a
