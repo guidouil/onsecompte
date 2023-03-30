@@ -56,6 +56,13 @@ Template.counter.helpers({
   isOwner() {
     return Template.instance().isOwner.get();
   },
+  averageRating() {
+    const happening = Template.instance().happening.get();
+    if (happening && happening.ratersCount) {
+      return happening.ratingTotal / happening.ratersCount;
+    }
+    return false;
+  },
 });
 
 Template.counter.events({

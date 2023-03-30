@@ -4,9 +4,18 @@
     {{#if Template.subscriptionsReady}}
     <!--  -->
     {{> theCount happening=happening isOwner=isOwner}}
+    <!--  -->
+    {{#if averageRating}}
+    <div class="medium no-padding center-align top-align">
+      <div class="padding">
+        {{> fiveStars size="huge" rating=averageRating isReadOnly=true}} ( {{happening.ratersCount}}
+        avis : {{roundTwo averageRating}} )
+      </div>
+    </div>
+    {{else}}
     <div class="space"></div>
+    {{/if}}
     <h3 class="small center-align">Faites passer le mot, tout le monde doit se compter !</h3>
-
     <h4 class="small center-align">
       Partagez le lien ci-dessous sur vos réseaux et groupes, pour se compter anonymement.
     </h4>

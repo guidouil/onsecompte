@@ -22,11 +22,27 @@
     <h2 class="small center-align upper">
       {{#if participant.isLike}}soutien{{else}}participant{{/if}}
     </h2>
-    <h5 class="small center-align">Le {{toLocaleDate participant.createdAt}}</h5>
+    <h6 class="small center-align">Le {{toLocaleDate participant.createdAt}}</h6>
+    <div class="medium no-padding center-align top-align">
+      <div class="padding">
+        {{#if participant.rating}}
+        <!--  -->
+        {{> fiveStars size="extra" rating=participant.rating isReadOnly=true}}
+        <!--  -->
+        {{else}}
+        <!--  -->
+        <h5 class="small center-align">Vous pouvez aussi donner votre avis</h5>
+        {{> fiveStars size="extra"}}
+        <div class="space"></div>
+        <button class="primary round elevate" id="rateBtn">Je donne mon avis</button>
+        <!--  -->
+        {{/if}}
+      </div>
+    </div>
     <div class="space"></div>
     <a
       href="/compteur/{{happening.slug}}"
-      class="primary round button responsive extra elevate upper"
+      class="secondary round button responsive large elevate upper"
     >
       Voir et partager le compteur
     </a>

@@ -31,6 +31,10 @@ const participantSchema = new SimpleSchema({
     type: Boolean,
     optional: true,
   },
+  rating: {
+    type: Number,
+    optional: true,
+  },
   location: {
     type: locationSchema,
     optional: true,

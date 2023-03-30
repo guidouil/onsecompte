@@ -65,6 +65,14 @@ const happeningSchema = new SimpleSchema({
     type: Array,
     optional: true,
   },
+  ratingTotal: {
+    type: Number,
+    optional: true,
+  },
+  ratersCount: {
+    type: Number,
+    optional: true,
+  },
   'locations.$': {
     type: locationSchema,
   },

@@ -1,0 +1,30 @@
+<template name="fiveStars">
+  {{#if isReadOnly}}
+  <nav class="wrap">
+    <i class="{{size}} {{isSelected 1}}">star</i>
+    <i class="{{size}} {{isSelected 2}}">star</i>
+    <i class="{{size}} {{isSelected 3}}">star</i>
+    <i class="{{size}} {{isSelected 4}}">star</i>
+    <i class="{{size}} {{isSelected 5}}">star</i>
+  </nav>
+  {{else}}
+  <nav class="wrap">
+    <button class="{{size}} transparent square round starBtn" data-value="1">
+      <i class="{{size}} {{isSelected 1}}">star</i>
+    </button>
+    <button class="{{size}} transparent square round starBtn" data-value="2">
+      <i class="{{size}} {{isSelected 2}}">star</i>
+    </button>
+    <button class="{{size}} transparent square round starBtn" data-value="3">
+      <i class="{{size}} {{isSelected 3}}">star</i>
+    </button>
+    <button class="{{size}} transparent square round starBtn" data-value="4">
+      <i class="{{size}} {{isSelected 4}}">star</i>
+    </button>
+    <button class="{{size}} transparent square round starBtn" data-value="5">
+      <i class="{{size}} {{isSelected 5}}">star</i>
+    </button>
+  </nav>
+  <input type="hidden" id="fiveStarsRating" name="fiveStarsRating" value="{{rating}}" />
+  {{/if}}
+</template>

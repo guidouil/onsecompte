@@ -8,6 +8,7 @@ import './count.html';
 import '../../components/header/header.js';
 import '../../components/loading/loading.js';
 import '../../components/theCount/theCount.js';
+import '../../components/fiveStars/fiveStars.js';
 
 import { Happenings } from '/imports/api/happenings/happenings';
 import { Participants } from '/imports/api/participants/participants';
@@ -72,7 +73,7 @@ Template.count.events({
           'Vous êtes compté en tant que participant. Maintenant faites passer.',
           'success',
         );
-        FlowRouter.go(`/compteur/${happening.slug}`);
+        // FlowRouter.go(`/compteur/${happening.slug}`);
       }
     });
   },
@@ -93,7 +94,7 @@ Template.count.events({
           'Vous êtes compté en tant que soutien. Maintenant faites passer.',
           'success',
         );
-        FlowRouter.go(`/compteur/${happening.slug}`);
+        // FlowRouter.go(`/compteur/${happening.slug}`);
       }
     });
   },
@@ -122,5 +123,23 @@ Template.count.events({
         });
       }
     });
+  },
+  'click #rateBtn'(event, templateInstance) {
+    const rating = Number(document.getElementById('fiveStarsRating').value);
+    if (rating) {
+      const happening = Template.instance().happening.get();
+      const happeningId = happening._id;
+      const uuid = templateInstance.uuid.get();
+      const { _id } = Participants.findOne({ happeningId, uuid });
+      Meteor.call('participants.setRating', { _id, rating }, (error) => {
+        if (error) {
+          Swal.fire({
+            title: 'Bug!',
+            text: error.message,
+            icon: 'error',
+          });
+        }
+      });
+    }
   },
 });

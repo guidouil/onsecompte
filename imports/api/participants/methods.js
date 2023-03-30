@@ -29,4 +29,12 @@ Meteor.methods({
     }
     return Participants.remove({ _id });
   },
+  'participants.setRating'({ _id, rating }) {
+    check(_id, String);
+    check(rating, Number);
+    if (Participants.find({ _id }).count() !== 1) {
+      throw new Meteor.Error(404, 'Participation non trouvée.');
+    }
+    return Participants.update({ _id }, { $set: { rating } });
+  },
 });

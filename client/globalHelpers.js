@@ -71,3 +71,5 @@ Template.registerHelper('includes', (array, word) => array.includes(word));
 Template.registerHelper('not', (boolean) => !boolean);
 
 Template.registerHelper('neg', (n) => n * -1);
+
+Template.registerHelper('roundTwo', (num) => Math.round(num * 100) / 100);
