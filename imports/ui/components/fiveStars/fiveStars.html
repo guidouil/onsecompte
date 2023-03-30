@@ -1,20 +1,20 @@
 <template name="fiveStars">
   {{#if isReadOnly}}
-  <nav class="wrap">
-    <i class="{{size}} {{isSelected 1}}">star</i>
-    <i class="{{size}} {{isSelected 2}}">star</i>
-    <i class="{{size}} {{isSelected 3}}">star</i>
-    <i class="{{size}} {{isSelected 4}}">star</i>
-    <i class="{{size}} {{isSelected 5}}">star</i>
-  </nav>
+  <div>
+    <i class="{{size}} {{isSelected 1}} rounded">star</i>
+    <i class="{{size}} {{isSelected 2}} rounded">star</i>
+    <i class="{{size}} {{isSelected 3}} rounded">star</i>
+    <i class="{{size}} {{isSelected 4}} rounded">star</i>
+    <i class="{{size}} {{isSelected 5}} rounded">star</i>
+  </div>
   {{else}}
-  <nav class="wrap">
-    <i class="{{size}} {{isSelected 1}} starBtn" data-value="1">star</i>
-    <i class="{{size}} {{isSelected 2}} starBtn" data-value="2">star</i>
-    <i class="{{size}} {{isSelected 3}} starBtn" data-value="3">star</i>
-    <i class="{{size}} {{isSelected 4}} starBtn" data-value="4">star</i>
-    <i class="{{size}} {{isSelected 5}} starBtn" data-value="5">star</i>
-  </nav>
+  <div>
+    <i class="{{size}} {{isSelected 1}} starBtn rounded" data-value="1">star</i>
+    <i class="{{size}} {{isSelected 2}} starBtn rounded" data-value="2">star</i>
+    <i class="{{size}} {{isSelected 3}} starBtn rounded" data-value="3">star</i>
+    <i class="{{size}} {{isSelected 4}} starBtn rounded" data-value="4">star</i>
+    <i class="{{size}} {{isSelected 5}} starBtn rounded" data-value="5">star</i>
+  </div>
   <input type="hidden" id="fiveStarsRating" name="fiveStarsRating" value="{{rating}}" />
   {{/if}}
 </template>
