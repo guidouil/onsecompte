@@ -7,9 +7,9 @@
     <!--  -->
     {{#if averageRating}}
     <div class="medium no-padding center-align top-align">
-      <div class="padding">
-        {{> fiveStars size="huge" rating=averageRating isReadOnly=true}} ( {{happening.ratersCount}}
-        avis : {{roundTwo averageRating}} )
+      <div>
+        {{> fiveStars size="massive" rating=averageRating isReadOnly=true}} (
+        {{happening.ratersCount}} avis : {{roundTwo averageRating}} )
       </div>
     </div>
     {{else}}

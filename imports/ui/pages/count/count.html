@@ -24,15 +24,15 @@
     </h2>
     <h6 class="small center-align">Le {{toLocaleDate participant.createdAt}}</h6>
     <div class="medium no-padding center-align top-align">
-      <div class="padding">
+      <div>
         {{#if participant.rating}}
         <!--  -->
-        {{> fiveStars size="huge" rating=participant.rating isReadOnly=true}}
+        {{> fiveStars size="massive" rating=participant.rating isReadOnly=true}}
         <!--  -->
         {{else}}
         <!--  -->
         <h5 class="small center-align">Vous pouvez aussi donner votre avis</h5>
-        {{> fiveStars size="huge"}}
+        {{> fiveStars size="massive"}}
         <div class="space"></div>
         <button class="primary round elevate" id="rateBtn">Je donne mon avis</button>
         <!--  -->

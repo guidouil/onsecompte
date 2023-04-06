@@ -2,6 +2,10 @@ i.huge {
   font-size: 3rem;
   width: 3rem;
 }
+i.massive {
+  font-size: 4rem;
+  width: 4rem;
+}
 .starBtn {
   cursor: pointer;
 }
