@@ -2,7 +2,6 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 import { $ } from 'meteor/jquery';
-import Swal from 'sweetalert2';
 
 import './loginToken.html';
 import '../../components/header/header.js';
@@ -37,11 +36,8 @@ Template.loginToken.events({
     token = token.trim();
     Meteor.passwordlessLoginWithToken(email, token, (error) => {
       if (error) {
-        Swal.fire({
-          title: 'Bug!',
-          text: error.message,
-          icon: 'error',
-        });
+        document.querySelector('#toastErrorMessage').innerHTML = error.message;
+        ui('#toastError');
       } else {
         FlowRouter.go(`/profile`);
       }

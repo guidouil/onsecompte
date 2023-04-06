@@ -34,11 +34,8 @@ Template.login.events({
     const options = { selector: email, userData: { email } };
     Accounts.requestLoginTokenForUser(options, (error) => {
       if (error) {
-        Swal.fire({
-          title: 'Bug!',
-          text: error.message,
-          icon: 'error',
-        });
+        document.querySelector('#toastErrorMessage').innerHTML = error.message;
+        ui('#toastError');
       } else {
         FlowRouter.go(`/login-token/${email}`);
       }

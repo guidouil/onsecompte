@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
-import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 import Swal from 'sweetalert2';
 
 import './count.html';
@@ -62,18 +61,12 @@ Template.count.events({
     const uuid = templateInstance.uuid.get();
     Meteor.call('participants.insert', { happeningId, uuid }, (error) => {
       if (error) {
-        Swal.fire({
-          title: 'Bug!',
-          text: error.message,
-          icon: 'error',
-        });
+        document.querySelector('#toastErrorMessage').innerHTML = error.message;
+        ui('#toastError');
       } else {
-        Swal.fire(
-          'Merci',
-          'Vous êtes compté en tant que participant. Maintenant faites passer.',
-          'success',
-        );
-        // FlowRouter.go(`/compteur/${happening.slug}`);
+        document.querySelector('#toastSuccessMessage').innerHTML =
+          'Vous êtes compté en tant que participant. Maintenant faites passer.';
+        ui('#toastSuccess');
       }
     });
   },
@@ -83,18 +76,12 @@ Template.count.events({
     const uuid = templateInstance.uuid.get();
     Meteor.call('participants.insert', { happeningId, uuid, isLike: true }, (error) => {
       if (error) {
-        Swal.fire({
-          title: 'Bug!',
-          text: error.message,
-          icon: 'error',
-        });
+        document.querySelector('#toastErrorMessage').innerHTML = error.message;
+        ui('#toastError');
       } else {
-        Swal.fire(
-          'Merci!',
-          'Vous êtes compté en tant que soutien. Maintenant faites passer.',
-          'success',
-        );
-        // FlowRouter.go(`/compteur/${happening.slug}`);
+        document.querySelector('#toastSuccessMessage').innerHTML =
+          'Vous êtes compté en tant que soutien. Maintenant faites passer.';
+        ui('#toastSuccess');
       }
     });
   },
@@ -114,11 +101,8 @@ Template.count.events({
       if (result.isConfirmed) {
         Meteor.call('participants.remove', participant._id, (error) => {
           if (error) {
-            Swal.fire({
-              title: 'Bug!',
-              text: error.message,
-              icon: 'error',
-            });
+            document.querySelector('#toastErrorMessage').innerHTML = error.message;
+            ui('#toastError');
           }
         });
       }
@@ -133,11 +117,8 @@ Template.count.events({
       const { _id } = Participants.findOne({ happeningId, uuid });
       Meteor.call('participants.setRating', { _id, rating }, (error) => {
         if (error) {
-          Swal.fire({
-            title: 'Bug!',
-            text: error.message,
-            icon: 'error',
-          });
+          document.querySelector('#toastErrorMessage').innerHTML = error.message;
+          ui('#toastError');
         }
       });
     }

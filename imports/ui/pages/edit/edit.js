@@ -30,11 +30,8 @@ Template.edit.events({
     const slug = $('#slug').val();
     Meteor.call('happenings.isUniqueSlug', { slug, _id }, (error, isUnique) => {
       if (error) {
-        Swal.fire({
-          title: 'Bug!',
-          text: error.message,
-          icon: 'error',
-        });
+        document.querySelector('#toastErrorMessage').innerHTML = error.message;
+        ui('#toastError');
         return false;
       }
       if (!isUnique) {
@@ -70,11 +67,8 @@ Template.edit.events({
       };
       Meteor.call('happenings.update', happening, (errorBis) => {
         if (errorBis) {
-          Swal.fire({
-            title: 'Bug!',
-            text: errorBis.message,
-            icon: 'error',
-          });
+          document.querySelector('#toastErrorMessage').innerHTML = errorBis.message;
+          ui('#toastError');
         } else {
           FlowRouter.go(`/compteur/${currentHappening.slug}`);
         }
@@ -94,11 +88,8 @@ Template.edit.events({
       if (result.isConfirmed) {
         Meteor.call('happenings.remove', _id, (error) => {
           if (error) {
-            Swal.fire({
-              title: 'Bug!',
-              text: error.message,
-              icon: 'error',
-            });
+            document.querySelector('#toastErrorMessage').innerHTML = error.message;
+            ui('#toastError');
           } else {
             FlowRouter.go('/profile');
           }
