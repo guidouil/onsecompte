@@ -16,12 +16,22 @@ Template.fiveStars.onCreated(() => {
 });
 
 Template.fiveStars.helpers({
+  starsCount() {
+    return [1, 2, 3, 4, 5];
+  },
   isSelected(starNumber) {
     const rating = Template.instance().rating.get();
     if (starNumber <= rating) {
-      return 'yellow-text fill';
+      return true;
     }
-    return 'grey-text';
+    return false;
+  },
+  isHalf(starNumber) {
+    const rating = Template.instance().rating.get();
+    if (starNumber - 0.5 <= rating) {
+      return true;
+    }
+    return false;
   },
   rating() {
     return Template.instance().rating.get();
@@ -33,6 +43,6 @@ Template.fiveStars.helpers({
 
 Template.fiveStars.events({
   'click .starBtn'(event, templateInstance) {
-    templateInstance.rating.set(event.target.dataset.value);
+    templateInstance.rating.set(event.currentTarget.dataset.value);
   },
 });
