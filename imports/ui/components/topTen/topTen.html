@@ -5,13 +5,7 @@
   <h2 class="small center-align">Participez aux compteurs du moment 👇</h2>
   <div class="grid">
     {{#each happenings}}
-    <div class="s12 m12 l6">
-      <a class="row wave round primary elevate" href="/a/{{slug}}">
-        <i>group</i>
-        <div class="max">{{title}}</div>
-        <span class="badge round none black white-text">{{formatNumber total}}</span>
-      </a>
-    </div>
+    <div class="s12 m6 l3">{{> happeningItem this}}</div>
     {{/each}}
   </div>
   <div class="space"></div>

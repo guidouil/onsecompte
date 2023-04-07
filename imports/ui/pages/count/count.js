@@ -26,7 +26,12 @@ Template.count.onCreated(() => {
       instance.happening.set(happening);
       document.title = happening.title;
       Meteor.call('happenings.isOwner', happening._id, (error, isOwner) => {
-        instance.isOwner.set(isOwner);
+        if (error) {
+          document.querySelector('#toastErrorMessage').innerHTML = error.message;
+          ui('#toastError');
+        } else {
+          instance.isOwner.set(isOwner);
+        }
       });
     }
   });

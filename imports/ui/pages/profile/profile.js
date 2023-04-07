@@ -4,6 +4,7 @@ import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 
 import './profile.html';
 import '../../components/header/header.js';
+import '../../components/happeningItem/happeningItem.js';
 
 import { Happenings } from '/imports/api/happenings/happenings';
 

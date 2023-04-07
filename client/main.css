@@ -6,6 +6,6 @@ i.massive {
   font-size: 4rem;
   width: 4rem;
 }
-.starBtn {
+.starBtn, .happening {
   cursor: pointer;
 }

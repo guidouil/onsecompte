@@ -10,7 +10,17 @@ Meteor.publish('happenings.top_ten', () =>
     { isPublic: true },
     {
       limit: 10,
-      fields: { _id: 1, slug: 1, title: 1, count: 1, likes: 1, total: 1, isPublic: 1 },
+      fields: {
+        _id: 1,
+        slug: 1,
+        title: 1,
+        count: 1,
+        likes: 1,
+        total: 1,
+        isPublic: 1,
+        ratersCount: 1,
+        ratingTotal: 1,
+      },
       sort: { count: -1, likes: -1 },
     },
   ),

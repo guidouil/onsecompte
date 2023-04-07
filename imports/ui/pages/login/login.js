@@ -2,7 +2,6 @@ import { Template } from 'meteor/templating';
 import { Accounts } from 'meteor/accounts-base';
 import { FlowRouter } from 'meteor/ostrio:flow-router-extra';
 import { $ } from 'meteor/jquery';
-import Swal from 'sweetalert2';
 
 import './login.html';
 import '../../components/header/header.js';
@@ -24,11 +23,8 @@ Template.login.events({
     email = email.trim().toLowerCase();
     const re = /\S+@\S+\.\S+/;
     if (!re.test(email)) {
-      Swal.fire({
-        title: 'Bug!',
-        text: 'Merci de saisir une adresse valide',
-        icon: 'error',
-      });
+      document.querySelector('#toastErrorMessage').innerHTML = 'Merci de saisir une adresse valide';
+      ui('#toastError');
       return false;
     }
     const options = { selector: email, userData: { email } };
