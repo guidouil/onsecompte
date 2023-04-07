@@ -1,12 +1,12 @@
 <template name="happeningItem">
   <article class="happening {{classNames}} primary elevate" id="happening_{{_id}}">
     <h5>{{title}}</h5>
-    {{> fiveStars rating=averageRating isReadOnly=true size='large'}}
+    {{> fiveStars rating=averageRating isReadOnly=true size='huge'}}
     <div class="space"></div>
-    <a class="row wave fill round">
-      <i>groupe</i>
-      <div class="max"></div>
-      <span class="badge round none black white-text">{{formatNumber total}}</span>
-    </a>
+    <h6 class="fill right-align">
+      <i class="left absolute padding extra">group</i>
+      <span class="padding">{{formatNumber total}}</span>
+      <div class="tooltip">Participants + Soutiens</div>
+    </h6>
   </article>
 </template>

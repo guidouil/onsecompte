@@ -1,11 +1,14 @@
 i.huge {
-  font-size: 3rem;
-  width: 3rem;
+  font-size: 2.9rem;
+  width: 2.9rem;
 }
+
 i.massive {
   font-size: 4rem;
   width: 4rem;
 }
-.starBtn, .happening {
+
+.starBtn,
+.happening {
   cursor: pointer;
 }
