@@ -1,6 +1,6 @@
 <template name="fiveStars">
   {{#if isReadOnly}}
-  <div>
+  <div class="no-wrap">
     {{#each starsCount}} {{#if isSelected this ../rating}}
     <!-- Filled -->
     <i class="{{../size}} amber-text">
@@ -32,7 +32,7 @@
     {{/if}} {{/if}} {{/each}}
   </div>
   {{else}}
-  <div>
+  <nav class="no-space no-wrap">
     {{#each starsCount}} {{#if isSelected this ../rating}}
     <!-- Filled -->
     <i class="{{../size}} amber-text starBtn" data-value="{{this}}">
@@ -52,7 +52,7 @@
       </svg>
     </i>
     {{/if}} {{/each}}
-  </div>
+  </nav>
   <input type="hidden" id="fiveStarsRating" name="fiveStarsRating" value="{{rating}}" />
   {{/if}}
 </template>
